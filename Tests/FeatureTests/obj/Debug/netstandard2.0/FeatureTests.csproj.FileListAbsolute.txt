@@ -1,0 +1,9 @@
+C:\code\github\EF spike\Tests\FeatureTests\bin\Debug\netstandard2.0\FeatureTests.deps.json
+C:\code\github\EF spike\Tests\FeatureTests\bin\Debug\netstandard2.0\FeatureTests.dll
+C:\code\github\EF spike\Tests\FeatureTests\bin\Debug\netstandard2.0\FeatureTests.pdb
+C:\code\github\EF spike\Tests\FeatureTests\obj\Debug\netstandard2.0\FeatureTests.csprojResolveAssemblyReference.cache
+C:\code\github\EF spike\Tests\FeatureTests\obj\Debug\netstandard2.0\FeatureTests.csproj.CoreCompileInputs.cache
+C:\code\github\EF spike\Tests\FeatureTests\obj\Debug\netstandard2.0\FeatureTests.AssemblyInfoInputs.cache
+C:\code\github\EF spike\Tests\FeatureTests\obj\Debug\netstandard2.0\FeatureTests.AssemblyInfo.cs
+C:\code\github\EF spike\Tests\FeatureTests\obj\Debug\netstandard2.0\FeatureTests.dll
+C:\code\github\EF spike\Tests\FeatureTests\obj\Debug\netstandard2.0\FeatureTests.pdb
