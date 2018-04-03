@@ -1,10 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\EF spike\\Feature 2",
     "\\Tests",
-    "\\Tests\\FeatureTests"
+    "\\Tests\\FeatureTests",
+    "\\Tests\\FeatureTests\\Scheme",
+    "\\WebApi",
+    "\\WebApi\\EF Spike",
+    "\\WebApi\\EF Spike\\DatabaseContext",
+    "\\WebApi\\EF Spike\\Membership",
+    "\\WebApi\\EF Spike\\Scheme",
+    "\\WebApi\\EF Spike\\Scheme\\Controllers"
   ],
-  "SelectedNode": "\\Tests\\FeatureTests\\Scheme",
+  "SelectedNode": "\\Tests\\FeatureTests\\Tools",
   "PreviewInSolutionExplorer": false
 }
