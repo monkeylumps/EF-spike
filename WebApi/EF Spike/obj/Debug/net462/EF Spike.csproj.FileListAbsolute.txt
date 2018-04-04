@@ -338,3 +338,4 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.AssemblyInfo.c
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csproj.CopyComplete
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.exe
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.pdb
+C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csprojResolveAssemblyReference.cache

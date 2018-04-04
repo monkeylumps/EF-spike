@@ -97,6 +97,30 @@ namespace FeatureTests.Membership
             Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
         }
 
+        [Fact]
+        public async void GetNotApplicableIfPsrMatches()
+        {
+            // Arrange
+            var expected = CreateMembership(psr);
+
+            expected.MembershipReference = 2;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipAverageAgeBasis = 3;
+            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
+
+            await sut.Post(expected);
+
+            // Act
+            var result = await sut.GetNotApplicable(psr);
+
+            var resolvedResult = resolver.GetObjectResult(new List<EF_Spike.Membership.Model.Membership>{expected}, result);
+
+            // Assert
+            Assert.NotNull(resolvedResult);
+            Assert.Equal(200, resolvedResult.Value.objectResult.StatusCode);
+            Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
+        }
+
         private TblMembership CreateTblMembership(int psr)
         {
             var result = CreateMembership(psr);
@@ -140,7 +164,7 @@ namespace FeatureTests.Membership
             return new MembershipAverageAgeBasiss
             {
                 MembershipReference = 1,
-                MembershipAverageAgeBasis = 3,
+                MembershipAverageAgeBasis = 2,
                 StartEventReference = 1
             };
         }
