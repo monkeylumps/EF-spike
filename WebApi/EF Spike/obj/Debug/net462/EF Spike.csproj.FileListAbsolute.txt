@@ -337,3 +337,5 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.Mvc.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.Mvc.Core.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\MediatR.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\AutoMapper.dll

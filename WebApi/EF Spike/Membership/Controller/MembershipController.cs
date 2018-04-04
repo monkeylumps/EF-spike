@@ -1,4 +1,6 @@
-﻿using EF_Spike.Membership.Handler;
+﻿using System.Threading.Tasks;
+using EF_Spike.Membership.Handler;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EF_Spike.Membership.Controller
@@ -7,18 +9,25 @@ namespace EF_Spike.Membership.Controller
     [Route("api/Membership")]
     public class MembershipController : Microsoft.AspNetCore.Mvc.Controller
     {
-        private readonly IGetMembership getMembership;
+        private readonly IMediator mediator;
 
-        public MembershipController(IGetMembership getMembership)
+        public MembershipController(IMediator mediator)
         {
-            this.getMembership = getMembership;
+            this.mediator = mediator;
         }
 
         [HttpGet]
-        public IActionResult Get(int Psr)
+        public async Task<IActionResult> Get(int psr)
         {
-            var result = getMembership.Handle(Psr);
+            var result = await mediator.Send(new GetMembership {Psr = psr});
             return Ok(result);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post(Model.Membership membership)
+        {
+            var result = await mediator.Send(new PostMembership {Membership = membership});
+            return Created(string.Empty, result);
         }
     }
 }

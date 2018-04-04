@@ -8,11 +8,11 @@ namespace FeatureTests.Scheme
     {
         private readonly SchemeController sut;
 
-        private readonly OkRequestResolver resolver;
+        private readonly ObjectResultResolver resolver;
 
         public SchemeTests()
         {
-            resolver = new OkRequestResolver();
+            resolver = new ObjectResultResolver();
             sut = new SchemeController();
         }
 
@@ -25,11 +25,12 @@ namespace FeatureTests.Scheme
             // Act
             var result = sut.Get();
 
-            var resolvedResult = resolver.GetOkResult(expected, result);
+            var resolvedResult = resolver.GetObjectResult(expected, result);
 
             // Assert
-            Assert.True(resolvedResult.isOkResult);
-            Assert.Equal(resolvedResult.expected, resolvedResult.result);
+            Assert.NotNull(resolvedResult);
+            Assert.Equal(200, resolvedResult.Value.objectResult.StatusCode);
+            Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
         }
     }
 }

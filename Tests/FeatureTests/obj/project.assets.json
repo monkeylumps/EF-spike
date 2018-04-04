@@ -65,6 +65,15 @@
           "lib/net40/Esent.Interop.dll": {}
         }
       },
+      "MediatR/4.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/MediatR.dll": {}
+        },
+        "runtime": {
+          "lib/net45/MediatR.dll": {}
+        }
+      },
       "Microsoft.AspNetCore/2.0.2": {
         "type": "package",
         "dependencies": {
@@ -2608,6 +2617,8 @@
         "type": "project",
         "framework": ".NETFramework,Version=v4.6.2",
         "dependencies": {
+          "AutoMapper": "6.2.2",
+          "MediatR": "4.1.0",
           "Microsoft.AspNetCore": "2.0.2",
           "Microsoft.AspNetCore.Mvc": "2.0.3",
           "Microsoft.AspNetCore.StaticFiles": "2.0.2",
@@ -2676,6 +2687,18 @@
         "lib/netcore45/Esent.Interop.Wsa.pdb",
         "managedesent.1.9.4.nupkg.sha512",
         "managedesent.nuspec"
+      ]
+    },
+    "MediatR/4.1.0": {
+      "sha512": "xpResbmpvPjlZOApIyUgrhGksGYVTuxb3bYP0LolmlpCcXrkujuTTFm6NyCFN8MZkYDgsPpn4QWdxWLBMxoVYA==",
+      "type": "package",
+      "path": "mediatr/4.1.0",
+      "files": [
+        "lib/net45/MediatR.dll",
+        "lib/netstandard1.3/MediatR.dll",
+        "lib/netstandard2.0/MediatR.dll",
+        "mediatr.4.1.0.nupkg.sha512",
+        "mediatr.nuspec"
       ]
     },
     "Microsoft.AspNetCore/2.0.2": {
@@ -7238,6 +7261,7 @@
       "AutoMapper >= 6.2.2",
       "EF Spike >= 1.0.0",
       "Microsoft.EntityFrameworkCore.InMemory >= 2.0.2",
+      "SimpleInjector >= 4.0.12",
       "xunit >= 2.3.1",
       "xunit.runner.visualstudio >= 2.3.1"
     ]
@@ -7294,6 +7318,10 @@
           "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "[2.0.2, )"
+          },
+          "SimpleInjector": {
+            "target": "Package",
+            "version": "[4.0.12, )"
           },
           "xunit": {
             "target": "Package",

@@ -250,3 +250,4 @@ C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\System.Composition.R
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\System.Composition.TypedParts.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\AutoMapper.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\MediatR.dll

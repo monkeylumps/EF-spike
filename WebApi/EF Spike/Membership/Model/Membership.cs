@@ -12,21 +12,6 @@ namespace EF_Spike.Membership.Model
         {
 
         }
-
-        public Membership(TblMembership membership)
-        {
-            MembershipReference = membership.MembershipReference;
-            Psrnumber = membership.Psrnumber;
-            SectionNumber = membership.SectionNumber;
-            LevyTagTypeReference = membership.LevyTagTypeReference;
-            EffectiveDate = membership.EffectiveDate;
-            EndDate = membership.EndDate;
-            StartEventReference = membership.StartEventReference;
-            EndEventReference = membership.EndEventReference;
-            AgeProfiling50to59 = membership.AgeProfiling50to59;
-            AgeProfiling60Plus = membership.AgeProfiling60Plus;
-        }
-
         public int MembershipReference { get; set; }
         public int Psrnumber { get; set; }
         public short SectionNumber { get; set; }

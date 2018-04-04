@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.2/win7-x86",
-    "signature": "a554b2651309e91c4cd4f40a08beb1e8a34422c6"
+    "signature": "3659df9015aaad70fd3e8df2357d624f9223b164"
   },
   "compilationOptions": {
     "defines": [
@@ -23,6 +23,8 @@
     ".NETFramework,Version=v4.6.2": {
       "EF Spike/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
+          "MediatR": "4.1.0",
           "Microsoft.AspNetCore": "2.0.2",
           "Microsoft.AspNetCore.Mvc": "2.0.3",
           "Microsoft.AspNetCore.StaticFiles": "2.0.2",
@@ -758,6 +760,11 @@
           "System.Xml.XPath.XDocument.dll": {}
         }
       },
+      "AutoMapper/6.2.2": {
+        "compile": {
+          "lib/net45/AutoMapper.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -766,6 +773,11 @@
       "ManagedEsent/1.9.4": {
         "compile": {
           "lib/net40/Esent.Interop.dll": {}
+        }
+      },
+      "MediatR/4.1.0": {
+        "compile": {
+          "lib/net45/MediatR.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.0.2": {
@@ -2075,6 +2087,8 @@
     ".NETFramework,Version=v4.6.2/win7-x86": {
       "EF Spike/1.0.0": {
         "dependencies": {
+          "AutoMapper": "6.2.2",
+          "MediatR": "4.1.0",
           "Microsoft.AspNetCore": "2.0.2",
           "Microsoft.AspNetCore.Mvc": "2.0.3",
           "Microsoft.AspNetCore.StaticFiles": "2.0.2",
@@ -2210,6 +2224,11 @@
           "EF Spike.exe": {}
         }
       },
+      "AutoMapper/6.2.2": {
+        "runtime": {
+          "lib/net45/AutoMapper.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0"
@@ -2221,6 +2240,11 @@
       "ManagedEsent/1.9.4": {
         "runtime": {
           "lib/net40/Esent.Interop.dll": {}
+        }
+      },
+      "MediatR/4.1.0": {
+        "runtime": {
+          "lib/net45/MediatR.dll": {}
         }
       },
       "Microsoft.AspNetCore/2.0.2": {
@@ -3538,6 +3562,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "AutoMapper/6.2.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eGKcnJdoF5rYMWPUaSPtlWdvua9xw4hnQN5kM/X4AXLGKghrtPIaMv+RYoA3sj0kyZ3X6wZ1Qj67F+u0pCCPaw==",
+      "path": "automapper/6.2.2",
+      "hashPath": "automapper.6.2.2.nupkg.sha512"
+    },
     "Libuv/1.10.0": {
       "type": "package",
       "serviceable": true,
@@ -3551,6 +3582,13 @@
       "sha512": "sha512-coNOIYTi8Nty9yvelOHlmnq+EP3mRE3lwDTfOeodznEVmuzybr/VUQaeAspAHIGJXUm483StJhXenBZ/28UY9g==",
       "path": "managedesent/1.9.4",
       "hashPath": "managedesent.1.9.4.nupkg.sha512"
+    },
+    "MediatR/4.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xpResbmpvPjlZOApIyUgrhGksGYVTuxb3bYP0LolmlpCcXrkujuTTFm6NyCFN8MZkYDgsPpn4QWdxWLBMxoVYA==",
+      "path": "mediatr/4.1.0",
+      "hashPath": "mediatr.4.1.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore/2.0.2": {
       "type": "package",
