@@ -117,7 +117,7 @@ namespace FeatureTests.Membership
 
             Assert.NotEmpty(members);
 
-            var events = registryContext.TblEvent.Where(x => x.Psrnumber == Psr);
+            var events = registryContext.TblEvent.Where(x => x.Psrnumber == Psr && x.EventType == 8);
 
             Assert.NotEmpty(events);
         }
