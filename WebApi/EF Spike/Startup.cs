@@ -18,6 +18,7 @@ using SimpleInjector;
 using SimpleInjector.Integration.AspNetCore.Mvc;
 using SimpleInjector.Lifestyles;
 using MediatR.Pipeline;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace EF_Spike
 {
@@ -46,6 +47,11 @@ namespace EF_Spike
                 {
                     builder.UseSqlServer(connection);
                 }
+            });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
             });
 
             IntegrateSimpleInjector(services);
@@ -122,6 +128,14 @@ namespace EF_Spike
             });
 
             app.UseMvc();
+            app.UseSwagger(c =>
+            {
+                c.RouteTemplate = "api-docs/{documentName}/swagger.json";
+            });
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/api-docs/v1/swagger.json", "My API V1");
+            });
         }
 
         private void IntegrateSimpleInjector(IServiceCollection services)

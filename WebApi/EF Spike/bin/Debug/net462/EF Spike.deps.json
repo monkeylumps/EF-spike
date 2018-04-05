@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.2/win7-x86",
-    "signature": "3659df9015aaad70fd3e8df2357d624f9223b164"
+    "signature": "934df4923cfd1fdd8d3ec2b141421f23081ca64b"
   },
   "compilationOptions": {
     "defines": [
@@ -31,6 +31,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.5",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.2",
+          "Microsoft.Extensions.FileProviders.Embedded": "2.0.1",
           "Microsoft.VisualStudio.Web.BrowserLink": "2.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
           "SimpleInjector": "4.0.12",
@@ -154,7 +155,11 @@
           "System.Xml.XmlDocument.Reference": "4.0.3.0",
           "System.Xml.XmlSerializer": "4.0.11.0",
           "System.Xml.XPath.Reference": "4.0.3.0",
-          "System.Xml.XPath.XDocument.Reference": "4.1.0.0"
+          "System.Xml.XPath.XDocument.Reference": "4.1.0.0",
+          "Swashbuckle.AspNetCore": "2.3.0.0",
+          "Swashbuckle.AspNetCore.Swagger": "2.3.0.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "2.3.0.0",
+          "Swashbuckle.AspNetCore.SwaggerUI": "2.3.0.0"
         },
         "compile": {
           "EF Spike.exe": {}
@@ -1604,6 +1609,14 @@
           "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Composite.dll": {}
         }
       },
+      "Microsoft.Extensions.FileProviders.Embedded/2.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "2.0.1"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.dll": {}
+        }
+      },
       "Microsoft.Extensions.FileProviders.Physical/2.0.1": {
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Abstractions": "2.0.1",
@@ -2082,6 +2095,26 @@
         "dependencies": {
           "System.Xml.XPath": "4.3.0"
         }
+      },
+      "Swashbuckle.AspNetCore/2.3.0.0": {
+        "compile": {
+          "Swashbuckle.AspNetCore.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.Swagger/2.3.0.0": {
+        "compile": {
+          "Swashbuckle.AspNetCore.Swagger.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerGen/2.3.0.0": {
+        "compile": {
+          "Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerUI/2.3.0.0": {
+        "compile": {
+          "Swashbuckle.AspNetCore.SwaggerUI.dll": {}
+        }
       }
     },
     ".NETFramework,Version=v4.6.2/win7-x86": {
@@ -2095,6 +2128,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "2.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer.Design": "1.1.5",
           "Microsoft.EntityFrameworkCore.Tools": "2.0.2",
+          "Microsoft.Extensions.FileProviders.Embedded": "2.0.1",
           "Microsoft.VisualStudio.Web.BrowserLink": "2.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
           "SimpleInjector": "4.0.12",
@@ -2218,7 +2252,11 @@
           "System.Xml.XmlDocument.Reference": "4.0.3.0",
           "System.Xml.XmlSerializer": "4.0.11.0",
           "System.Xml.XPath.Reference": "4.0.3.0",
-          "System.Xml.XPath.XDocument.Reference": "4.1.0.0"
+          "System.Xml.XPath.XDocument.Reference": "4.1.0.0",
+          "Swashbuckle.AspNetCore": "2.3.0.0",
+          "Swashbuckle.AspNetCore.Swagger": "2.3.0.0",
+          "Swashbuckle.AspNetCore.SwaggerGen": "2.3.0.0",
+          "Swashbuckle.AspNetCore.SwaggerUI": "2.3.0.0"
         },
         "runtime": {
           "EF Spike.exe": {}
@@ -3071,6 +3109,14 @@
           "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Composite.dll": {}
         }
       },
+      "Microsoft.Extensions.FileProviders.Embedded/2.0.1": {
+        "dependencies": {
+          "Microsoft.Extensions.FileProviders.Abstractions": "2.0.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.FileProviders.Embedded.dll": {}
+        }
+      },
       "Microsoft.Extensions.FileProviders.Physical/2.0.1": {
         "dependencies": {
           "Microsoft.Extensions.FileProviders.Abstractions": "2.0.1",
@@ -3552,6 +3598,26 @@
       "System.Xml.XPath.XDocument/4.3.0": {
         "dependencies": {
           "System.Xml.XPath": "4.3.0"
+        }
+      },
+      "Swashbuckle.AspNetCore/2.3.0.0": {
+        "runtime": {
+          "Swashbuckle.AspNetCore.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.Swagger/2.3.0.0": {
+        "runtime": {
+          "Swashbuckle.AspNetCore.Swagger.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerGen/2.3.0.0": {
+        "runtime": {
+          "Swashbuckle.AspNetCore.SwaggerGen.dll": {}
+        }
+      },
+      "Swashbuckle.AspNetCore.SwaggerUI/2.3.0.0": {
+        "runtime": {
+          "Swashbuckle.AspNetCore.SwaggerUI.dll": {}
         }
       }
     }
@@ -4149,6 +4215,13 @@
       "sha512": "sha512-bgAUXH3T/Y1R5bCthCiZVzEX4spvNeIHRv6+Jr4BJMxPVSFm/8er7xvywd2NCayv94frKZdDGP3mjAQZenZDxQ==",
       "path": "microsoft.extensions.fileproviders.composite/2.0.1",
       "hashPath": "microsoft.extensions.fileproviders.composite.2.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.FileProviders.Embedded/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-PH1oo04WCbKy42aga6bC4phl1rZfbFsZLuozJN1LGUUZTCnycUAZzCqG6MNRCgRiHg2bPexiQ15708vSwnuBHQ==",
+      "path": "microsoft.extensions.fileproviders.embedded/2.0.1",
+      "hashPath": "microsoft.extensions.fileproviders.embedded.2.0.1.nupkg.sha512"
     },
     "Microsoft.Extensions.FileProviders.Physical/2.0.1": {
       "type": "package",
@@ -4828,6 +4901,26 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Swashbuckle.AspNetCore/2.3.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Swashbuckle.AspNetCore.Swagger/2.3.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Swashbuckle.AspNetCore.SwaggerGen/2.3.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Swashbuckle.AspNetCore.SwaggerUI/2.3.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
     },
     "Microsoft.CSharp.Reference/4.0.0.0": {
       "type": "referenceassembly",
