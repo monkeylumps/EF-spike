@@ -9,7 +9,6 @@ namespace FeatureTests.Tools
         {
             context.Add(entity);
             context.SaveChanges();
-
         }
     }
 }

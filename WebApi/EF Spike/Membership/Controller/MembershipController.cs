@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using EF_Spike.Membership.Handler;
+using EF_Spike.Shared.Event.Enum;
+using EF_Spike.Shared.Model;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,7 +29,19 @@ namespace EF_Spike.Membership.Controller
         [HttpPost]
         public async Task<IActionResult> Post(Model.Membership membership)
         {
-            var result = await mediator.Send(new PostMembership {Membership = membership});
+            var result = await mediator.Send(new PostMembership
+            {
+                Membership = membership,
+                Event = new Event
+                {
+                    EventType = (short)EventType.Amend_Membership,
+                    Psrnumber = membership.Psrnumber,
+                    SectionNumber = 0,
+                    UserId = "user",
+                    NotificationDate = DateTime.Now
+                }
+            });
+
             return Created(string.Empty, result);
         }
 

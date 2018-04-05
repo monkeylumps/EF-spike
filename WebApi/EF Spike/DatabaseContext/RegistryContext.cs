@@ -1,22 +1,124 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace EF_Spike.DatabaseContext
 {
     public partial class RegistryContext : DbContext
     {
         public RegistryContext(DbContextOptions<RegistryContext> options) : base(options)
-        { }
+        {
 
+        }
+
+        public virtual DbSet<TblEvent> TblEvent { get; set; }
+        public virtual DbSet<TblEventSource> TblEventSource { get; set; }
+        public virtual DbSet<TblEventType> TblEventType { get; set; }
+        public virtual DbSet<TblEventTypeGroup> TblEventTypeGroup { get; set; }
         public virtual DbSet<TblMembership> TblMembership { get; set; }
         public virtual DbSet<TblMembershipAverageAgeBasis> TblMembershipAverageAgeBasis { get; set; }
         public virtual DbSet<TblMembershipAverageAgeBasisType> TblMembershipAverageAgeBasisType { get; set; }
         public virtual DbSet<TblMembershipBenefitType> TblMembershipBenefitType { get; set; }
         public virtual DbSet<TblMembershipDetails> TblMembershipDetails { get; set; }
         public virtual DbSet<TblMembershipType> TblMembershipType { get; set; }
-        // Unable to generate entity type for table 'dbo.tbl_MembershipValuationBasis'. Please see the warning messages.
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<TblEvent>(entity =>
+            {
+                entity.HasKey(e => e.EventReference);
+
+                entity.ToTable("tbl_Event");
+
+                entity.HasIndex(e => new { e.EventType, e.Psrnumber, e.CreateDateTime })
+                    .HasName("NC_IDX02");
+
+                entity.HasIndex(e => new { e.EventType, e.Psrnumber, e.NotificationDate })
+                    .HasName("idx_EventsByDate");
+
+                entity.HasIndex(e => new { e.Psrnumber, e.EventSourceReference, e.EventType })
+                    .HasName("NC_IDX01");
+
+                entity.Property(e => e.CreateDateTime)
+                    .HasColumnType("smalldatetime")
+                    .HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.EventSourceReference).HasDefaultValueSql("(0)");
+
+                entity.Property(e => e.NotificationDate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.Psrnumber).HasColumnName("PSRNumber");
+
+                entity.Property(e => e.TransactionId)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserId)
+                    .IsRequired()
+                    .HasMaxLength(300)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.EventSourceReferenceNavigation)
+                    .WithMany(p => p.TblEvent)
+                    .HasForeignKey(d => d.EventSourceReference)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbl_Event_tbl_EventSource");
+
+                entity.HasOne(d => d.EventTypeNavigation)
+                    .WithMany(p => p.TblEvent)
+                    .HasForeignKey(d => d.EventType)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Event_EventType");
+            });
+
+            modelBuilder.Entity<TblEventSource>(entity =>
+            {
+                entity.HasKey(e => e.EventSourceReference);
+
+                entity.ToTable("tbl_EventSource");
+
+                entity.Property(e => e.EventSourceDescription)
+                    .IsRequired()
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<TblEventType>(entity =>
+            {
+                entity.HasKey(e => e.EventType);
+
+                entity.ToTable("tbl_EventType");
+
+                entity.Property(e => e.EventTypeDescription)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.EventTypeGroupReference).HasDefaultValueSql("(0)");
+
+                entity.Property(e => e.ScoreUivisible)
+                    .HasColumnName("ScoreUIVisible")
+                    .HasDefaultValueSql("(1)");
+
+                entity.HasOne(d => d.EventTypeGroupReferenceNavigation)
+                    .WithMany(p => p.TblEventType)
+                    .HasForeignKey(d => d.EventTypeGroupReference)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_tbl_EventType_tbl_EventTypeGroup");
+            });
+
+            modelBuilder.Entity<TblEventTypeGroup>(entity =>
+            {
+                entity.HasKey(e => e.EventTypeGroupReference);
+
+                entity.ToTable("tbl_EventTypeGroup");
+
+                entity.Property(e => e.EventTypeGroupDescription)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
             modelBuilder.Entity<TblMembership>(entity =>
             {
                 entity.HasKey(e => e.MembershipReference);
