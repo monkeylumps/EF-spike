@@ -259,3 +259,7 @@ C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.batteri
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.batteries_v2.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.core.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.provider.e_sqlite3.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Swashbuckle.AspNetCore.Swagger.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerUI.dll

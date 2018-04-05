@@ -19,6 +19,7 @@ namespace FeatureTests.Tools
 
         public Container Configure(SqliteConnection connection)
         {
+            var connection2 = @"Server=.;Database=Registry;Trusted_Connection=True;";
             container.Register(() =>
             {
                 var options = new DbContextOptionsBuilder<RegistryContext>();
@@ -26,6 +27,7 @@ namespace FeatureTests.Tools
                 {
                     options.UseSqlite(connection)
                         .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
+                    //options.UseSqlServer(connection2);
                 }
 
                 return new RegistryContext(options.Options);
