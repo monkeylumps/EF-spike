@@ -19,7 +19,7 @@ namespace EF_Spike.Membership.Handler
 
         public async Task<List<Model.Membership>> Handle(GetNotApplicableMembership request, CancellationToken cancellationToken)
         {
-            var membership = await context.TblMembership.Where(x => x.Psrnumber == request.Psr && x.EndDate == null && x.TblMembershipAverageAgeBasis.Any(y => y.MembershipAverageAgeBasis == 3)).ToListAsync(cancellationToken);
+            var membership = await context.TblMembership.Where(x => x.Psrnumber == request.Psr && x.EndDate == null && x.EndEventReference == null && x.TblMembershipAverageAgeBasis.Any(y => y.MembershipAverageAgeBasis == 3)).ToListAsync(cancellationToken);
 
             return AutoMapper.Mapper.Map<List<TblMembership>, List<Model.Membership>>(membership);
         }
