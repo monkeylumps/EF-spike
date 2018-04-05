@@ -6,6 +6,7 @@ using EF_Spike.DatabaseContext;
 using EF_Spike.Membership.Handler;
 using MediatR;
 using MediatR.Pipeline;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using SimpleInjector;
@@ -14,16 +15,16 @@ namespace FeatureTests.Tools
 {
     public class ConfigureIOC
     {
-        private Container container = new Container();
+        private readonly Container container = new Container();
 
-        public Container Configure()
+        public Container Configure(SqliteConnection connection)
         {
             container.Register(() =>
             {
                 var options = new DbContextOptionsBuilder<RegistryContext>();
                 if (!options.IsConfigured)
                 {
-                    options.UseInMemoryDatabase("MembershipTests")
+                    options.UseSqlite(connection)
                         .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
                 }
 

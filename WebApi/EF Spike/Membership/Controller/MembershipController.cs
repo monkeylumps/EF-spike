@@ -38,7 +38,9 @@ namespace EF_Spike.Membership.Controller
                     Psrnumber = membership.Psrnumber,
                     SectionNumber = 0,
                     UserId = "user",
-                    NotificationDate = DateTime.Now
+                    NotificationDate = DateTime.Now,
+                    CreateDateTime = DateTime.Now,
+                    EventSourceReference = 1
                 }
             });
 

@@ -6,11 +6,12 @@ using EF_Spike.Membership.Controller;
 using EF_Spike.Membership.Model;
 using FeatureTests.Tools;
 using MediatR;
+using Microsoft.Data.Sqlite;
 using Xunit;
 
 namespace FeatureTests.Membership
 {
-    public class MembershipTests
+    public class MembershipTests : IDisposable
     {
         private readonly MembershipController sut;
 
@@ -18,12 +19,18 @@ namespace FeatureTests.Membership
 
         private readonly ObjectResultResolver resolver;
 
-        private const int psr = 10000005;
+        private const int Psr = 10000005;
+
+        private readonly SqliteConnection connection;
 
         public MembershipTests()
         {
+            connection = new SqliteConnection("DataSource=:memory:");
+
+            connection.Open();
+
             var ioc = new ConfigureIOC();
-            var container = ioc.Configure();
+            var container = ioc.Configure(connection);
 
             sut = new MembershipController(container.GetInstance<IMediator>());
 
@@ -40,18 +47,26 @@ namespace FeatureTests.Membership
             registryContext = container.GetInstance<RegistryContext>();
 
             registryContext.Database.EnsureDeleted();
+            registryContext.Database.EnsureCreated();
 
-            databaseBuilder.AddEntityToDb(CreateTblMembership(psr), registryContext);
+            databaseBuilder.AddReferanceData(registryContext, Psr);
+
+            databaseBuilder.AddEntityToDb(CreateTblMembership(Psr), registryContext);
+        }
+
+        public void Dispose()
+        {
+            connection.Close();
         }
 
         [Fact]
         public async void GetMembershipIfValidPsr()
         {
             // Arrange
-            var expected = CreateMembership(psr);
+            var expected = CreateMembership(Psr);
 
             // Act
-            var result = await sut.Get(psr);
+            var result = await sut.Get(Psr);
 
             var resolvedResult = resolver.GetObjectResult(expected, result);
 
@@ -82,7 +97,7 @@ namespace FeatureTests.Membership
         public async void PostMembershipIfPsrMatches()
         {
             // Arrange
-            var expected = CreateMembership(psr);
+            var expected = CreateMembership(Psr);
 
             expected.MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
@@ -98,18 +113,22 @@ namespace FeatureTests.Membership
             Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
             Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
 
-            var events = registryContext.TblMembership.Where(x => x.EndEventReference != null);
+            var members = registryContext.TblMembership.Where(x => x.Psrnumber == Psr && x.EndEventReference != null);
 
-            Assert.NotNull(events);
+            Assert.NotEmpty(members);
+
+            var events = registryContext.TblEvent.Where(x => x.Psrnumber == Psr && x.EventType == 8);
+
+            Assert.NotEmpty(events);
         }
 
         [Fact]
         public async void PostMembershipIfTransationFails()
         {
             // Arrange
-            var expected = CreateMembership(psr);
+            var expected = CreateMembership(1000006);
 
-            expected.MembershipReference = 1;
+            expected.MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 1;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 1;
 
@@ -122,16 +141,20 @@ namespace FeatureTests.Membership
             Assert.NotNull(resolvedResult);
             Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
 
-            var events = registryContext.TblMembership.Where(x => x.EndEventReference != null);
+            var members = registryContext.TblMembership.Where(x => x.Psrnumber == 1000006 && x.EndEventReference != null);
 
-            Assert.NotNull(events);
+            Assert.Empty(members);
+
+            var events = registryContext.TblEvent.Where(x => x.Psrnumber == 1000006);
+
+            Assert.Empty(events);
         }
 
         [Fact]
         public async void GetNotApplicableIfPsrMatches()
         {
             // Arrange
-            var expected = CreateMembership(psr);
+            var expected = CreateMembership(Psr);
 
             expected.MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
@@ -141,9 +164,9 @@ namespace FeatureTests.Membership
             await sut.Post(expected);
 
             // Act
-            var result = await sut.GetNotApplicable(psr);
+            var result = await sut.GetNotApplicable(Psr);
 
-            var resolvedResult = resolver.GetObjectResult(new List<EF_Spike.Membership.Model.Membership>{expected}, result);
+            var resolvedResult = resolver.GetObjectResult(new List<EF_Spike.Membership.Model.Membership> { expected }, result);
 
             // Assert
             Assert.NotNull(resolvedResult);
@@ -161,8 +184,8 @@ namespace FeatureTests.Membership
         {
             return new EF_Spike.Membership.Model.Membership
             {
-                Psrnumber = psr,
                 MembershipReference = 1,
+                Psrnumber = psr,
                 SectionNumber = 0,
                 LevyTagTypeReference = 2,
                 EffectiveDate = Convert.ToDateTime("1996-03-31T00:00:00"),
@@ -194,7 +217,7 @@ namespace FeatureTests.Membership
             return new MembershipAverageAgeBasiss
             {
                 MembershipReference = 1,
-                MembershipAverageAgeBasis = 2,
+                MembershipAverageAgeBasis = 1,
                 StartEventReference = 1
             };
         }
