@@ -48,6 +48,7 @@ namespace EF_Spike.Membership.Controller
         }
 
         [HttpGet]
+        [Route("api/Membership/NotApplicable")]
         public async Task<IActionResult> GetNotApplicable(int psr)
         {
             var result = await mediator.Send(new GetNotApplicableMembership{Psr = psr});

@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" />
+    <PackageReference Include="Microsoft.Extensions.FileProviders.Embedded" Version="2.0.1" />
     <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
     <PackageReference Include="SimpleInjector" Version="4.0.12" />
@@ -25,6 +26,21 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Swashbuckle.AspNetCore">
+      <HintPath>..\..\..\..\..\Users\mothersd\Desktop\Swashbuckle.AspNetCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.Swagger">
+      <HintPath>..\..\..\..\..\Users\mothersd\Desktop\Swashbuckle.AspNetCore.Swagger.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.SwaggerGen">
+      <HintPath>..\..\..\..\..\Users\mothersd\Desktop\Swashbuckle.AspNetCore.SwaggerGen.dll</HintPath>
+    </Reference>
+    <Reference Include="Swashbuckle.AspNetCore.SwaggerUI">
+      <HintPath>..\..\..\..\..\Users\mothersd\Desktop\Swashbuckle.AspNetCore.SwaggerUI.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

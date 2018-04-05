@@ -9,8 +9,8 @@
     "\\WebApi\\EF Spike\\DatabaseContext",
     "\\WebApi\\EF Spike\\Membership",
     "\\WebApi\\EF Spike\\Scheme",
-    "\\WebApi\\EF Spike\\Scheme\\Controllers"
+    "\\WebApi\\EF Spike\\Shared"
   ],
-  "SelectedNode": "\\Tests\\FeatureTests\\Tools",
+  "SelectedNode": "\\WebApi\\EF Spike\\App_Start",
   "PreviewInSolutionExplorer": false
 }
