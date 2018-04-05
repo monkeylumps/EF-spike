@@ -7,6 +7,7 @@ using EF_Spike.Membership.Handler;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using SimpleInjector;
 
 namespace FeatureTests.Tools
@@ -22,7 +23,8 @@ namespace FeatureTests.Tools
                 var options = new DbContextOptionsBuilder<RegistryContext>();
                 if (!options.IsConfigured)
                 {
-                    options.UseInMemoryDatabase("MembershipTests");
+                    options.UseInMemoryDatabase("MembershipTests")
+                        .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
                 }
 
                 return new RegistryContext(options.Options);

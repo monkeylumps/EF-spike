@@ -14,6 +14,8 @@ namespace FeatureTests.Membership
     {
         private readonly MembershipController sut;
 
+        private readonly RegistryContext registryContext;
+
         private readonly ObjectResultResolver resolver;
 
         private const int psr = 10000005;
@@ -35,7 +37,7 @@ namespace FeatureTests.Membership
 
             automapper.Configure();
 
-            var registryContext = container.GetInstance<RegistryContext>();
+            registryContext = container.GetInstance<RegistryContext>();
 
             registryContext.Database.EnsureDeleted();
 
@@ -95,6 +97,34 @@ namespace FeatureTests.Membership
             Assert.NotNull(resolvedResult);
             Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
             Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
+
+            var events = registryContext.TblMembership.Where(x => x.EndEventReference != null);
+
+            Assert.NotNull(events);
+        }
+
+        [Fact]
+        public async void PostMembershipIfTransationFails()
+        {
+            // Arrange
+            var expected = CreateMembership(psr);
+
+            expected.MembershipReference = 1;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 1;
+            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 1;
+
+            // Act
+            var result = await sut.Post(expected);
+
+            var resolvedResult = resolver.GetObjectResult(expected, result);
+
+            // Assert
+            Assert.NotNull(resolvedResult);
+            Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
+
+            var events = registryContext.TblMembership.Where(x => x.EndEventReference != null);
+
+            Assert.NotNull(events);
         }
 
         [Fact]

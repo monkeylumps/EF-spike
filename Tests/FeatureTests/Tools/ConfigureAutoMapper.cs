@@ -1,5 +1,6 @@
 ﻿using EF_Spike.DatabaseContext;
 using EF_Spike.Membership.Model;
+using EF_Spike.Shared.Model;
 
 namespace FeatureTests.Tools
 {
@@ -26,6 +27,18 @@ namespace FeatureTests.Tools
 
                 x.CreateMap<TblMembershipAverageAgeBasis, MembershipAverageAgeBasiss>();
                 x.CreateMap<MembershipAverageAgeBasiss, TblMembershipAverageAgeBasis>();
+
+                x.CreateMap<Event, TblEvent>();
+                x.CreateMap<TblEvent, Event>();
+
+                x.CreateMap<EventSource, TblEventSource>();
+                x.CreateMap<TblEventSource, EventSource>();
+
+                x.CreateMap<EventTypee, TblEventType>();
+                x.CreateMap<TblEventType, EventTypee>();
+
+                x.CreateMap<EventTypeGroup, TblEventTypeGroup>();
+                x.CreateMap<TblEventTypeGroup, EventTypeGroup>();
             });
         }
     }
