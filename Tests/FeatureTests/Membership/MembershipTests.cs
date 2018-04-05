@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using EF_Spike.DatabaseContext;
 using EF_Spike.Membership.Controller;
+using EF_Spike.Membership.Model;
 using FeatureTests.Tools;
 using MediatR;
 using Xunit;
@@ -28,11 +31,9 @@ namespace FeatureTests.Membership
 
             AutoMapper.Mapper.Reset();
 
-            AutoMapper.Mapper.Initialize(x =>
-            {
-                x.CreateMap<TblMembership, EF_Spike.Membership.Model.Membership>();
-                x.CreateMap<EF_Spike.Membership.Model.Membership, TblMembership>();
-            });
+            var automapper = new ConfigureAutoMapper();
+
+            automapper.Configure();
 
             var registryContext = container.GetInstance<RegistryContext>();
 
@@ -82,6 +83,8 @@ namespace FeatureTests.Membership
             var expected = CreateMembership(psr);
 
             expected.MembershipReference = 2;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
+            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
 
             // Act
             var result = await sut.Post(expected);
@@ -91,6 +94,30 @@ namespace FeatureTests.Membership
             // Assert
             Assert.NotNull(resolvedResult);
             Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
+            Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
+        }
+
+        [Fact]
+        public async void GetNotApplicableIfPsrMatches()
+        {
+            // Arrange
+            var expected = CreateMembership(psr);
+
+            expected.MembershipReference = 2;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipAverageAgeBasis = 3;
+            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
+
+            await sut.Post(expected);
+
+            // Act
+            var result = await sut.GetNotApplicable(psr);
+
+            var resolvedResult = resolver.GetObjectResult(new List<EF_Spike.Membership.Model.Membership>{expected}, result);
+
+            // Assert
+            Assert.NotNull(resolvedResult);
+            Assert.Equal(200, resolvedResult.Value.objectResult.StatusCode);
             Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
         }
 
@@ -113,7 +140,32 @@ namespace FeatureTests.Membership
                 EndEventReference = null,
                 AgeProfiling50to59 = null,
                 AgeProfiling60Plus = null,
-                StartEventReference = 5
+                StartEventReference = 5,
+                TblMembershipDetails = new List<MembershipDetails> { CreateMembershipDetails() },
+                TblMembershipAverageAgeBasis = new List<MembershipAverageAgeBasiss> { CreateMembershipAverageAgeBasis() }
+            };
+        }
+
+        private MembershipDetails CreateMembershipDetails()
+        {
+           return new MembershipDetails
+           {
+               MembershipReference = 1,
+               MembershipBenefitTypeReference = 1,
+               MembershipTypeReference = 1,
+               NumberOfMembers = 10,
+               NumberOfExcludedMembers = null,
+               AverageAgeOfMembers = null,
+           };
+        }
+
+        private MembershipAverageAgeBasiss CreateMembershipAverageAgeBasis()
+        {
+            return new MembershipAverageAgeBasiss
+            {
+                MembershipReference = 1,
+                MembershipAverageAgeBasis = 2,
+                StartEventReference = 1
             };
         }
     }

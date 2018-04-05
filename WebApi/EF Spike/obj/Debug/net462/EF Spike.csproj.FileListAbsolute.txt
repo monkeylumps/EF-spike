@@ -1,8 +1,3 @@
-C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csprojResolveAssemblyReference.cache
-C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.exe.config
-C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csproj.CoreCompileInputs.cache
-C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.AssemblyInfoInputs.cache
-C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.AssemblyInfo.cs
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\EF Spike.exe.config
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\EF Spike.deps.json
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\EF Spike.exe
@@ -105,6 +100,9 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\refs\System.Xml.XmlSeri
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\refs\System.Xml.XPath.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\refs\System.Xml.XPath.XDocument.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\libuv.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\AutoMapper.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Esent.Interop.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\MediatR.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.Antiforgery.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.Authentication.Abstractions.dll
@@ -153,10 +151,14 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.Se
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.Server.Kestrel.Https.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.Server.Kestrel.Transport.Libuv.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.StaticFiles.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.WebUtilities.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.CodeAnalysis.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.CodeAnalysis.CSharp.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.CodeAnalysis.Razor.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.CodeAnalysis.Workspaces.Desktop.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.CodeAnalysis.Workspaces.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.EntityFrameworkCore.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.EntityFrameworkCore.Design.dll
@@ -195,13 +197,32 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.Op
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.Primitives.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.WebEncoders.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Net.Http.Headers.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.BrowserLink.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\dotnet-aspnet-codegenerator-design.exe
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Win32.Registry.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Newtonsoft.Json.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Newtonsoft.Json.Bson.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\NuGet.Frameworks.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Remotion.Linq.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.Mvc.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.Mvc.Core.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Buffers.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Collections.Immutable.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.ComponentModel.Annotations.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.AttributedModel.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.Convention.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.Hosting.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.Runtime.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.TypedParts.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Data.SqlClient.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Diagnostics.DiagnosticSource.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Interactive.Async.dll
@@ -310,32 +331,11 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XmlDocument.
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XmlSerializer.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XPath.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XPath.XDocument.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.exe.config
+C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csproj.CoreCompileInputs.cache
+C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.AssemblyInfoInputs.cache
+C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.AssemblyInfo.cs
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csproj.CopyComplete
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.exe
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.pdb
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.AspNetCore.StaticFiles.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Esent.Interop.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.CodeAnalysis.Workspaces.Desktop.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.BrowserLink.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\dotnet-aspnet-codegenerator-design.exe
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\NuGet.Frameworks.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.AttributedModel.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.Convention.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.Hosting.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.Runtime.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Composition.TypedParts.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.Mvc.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.Mvc.Core.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\MediatR.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\AutoMapper.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csprojResolveAssemblyReference.cache

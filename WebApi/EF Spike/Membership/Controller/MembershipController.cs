@@ -29,5 +29,13 @@ namespace EF_Spike.Membership.Controller
             var result = await mediator.Send(new PostMembership {Membership = membership});
             return Created(string.Empty, result);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetNotApplicable(int psr)
+        {
+            var result = await mediator.Send(new GetNotApplicableMembership{Psr = psr});
+
+            return Ok(result);
+        }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using EF_Spike.DatabaseContext;
 using EF_Spike.Membership.Handler;
+using EF_Spike.Membership.Model;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -57,8 +58,6 @@ namespace EF_Spike
                 app.UseDeveloperExceptionPage();
             }
 
-            //container.Register<IGetMembership, GetMembershipHandler>();
-
             container.Register(() =>
             {
                 var options = new DbContextOptionsBuilder<RegistryContext>();
@@ -92,6 +91,21 @@ namespace EF_Spike
             {
                 x.CreateMap<TblMembership, Membership.Model.Membership>();
                 x.CreateMap<Membership.Model.Membership, TblMembership>();
+
+                x.CreateMap<TblMembershipType, MembershipType>();
+                x.CreateMap<MembershipType, TblMembershipType>();
+
+                x.CreateMap<TblMembershipDetails, MembershipType>();
+                x.CreateMap<MembershipDetails, TblMembershipType>();
+
+                x.CreateMap<TblMembershipBenefitType, MembershipBenefitType>();
+                x.CreateMap<MembershipBenefitType, TblMembershipBenefitType>();
+
+                x.CreateMap<TblMembershipAverageAgeBasisType, MembershipAverageAgeBasisType>();
+                x.CreateMap<MembershipAverageAgeBasisType, TblMembershipAverageAgeBasisType>();
+
+                x.CreateMap<TblMembershipAverageAgeBasis, MembershipAverageAgeBasiss>();
+                x.CreateMap<MembershipAverageAgeBasiss, TblMembershipAverageAgeBasis>();
             });
 
             app.UseMvc();

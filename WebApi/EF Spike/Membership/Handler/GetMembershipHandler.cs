@@ -17,7 +17,7 @@ namespace EF_Spike.Membership.Handler
 
         public async Task<Model.Membership> Handle(GetMembership query, CancellationToken cancellationToken)
         {
-            var membership = await context.TblMembership.FirstOrDefaultAsync(x => x.Psrnumber == query.Psr, cancellationToken);
+            var membership = await context.TblMembership.FirstOrDefaultAsync(x => x.Psrnumber == query.Psr && x.EndDate == null && x.EndEventReference == null, cancellationToken);
 
             if (membership == null) return new Model.Membership();
 
