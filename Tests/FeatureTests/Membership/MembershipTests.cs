@@ -64,6 +64,9 @@ namespace FeatureTests.Membership
         {
             // Arrange
             var expected = CreateMembership(Psr);
+            expected.MembershipReference = 1;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 1;
+            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 1;
 
             // Act
             var result = await sut.Get(Psr);
@@ -99,12 +102,14 @@ namespace FeatureTests.Membership
             // Arrange
             var expected = CreateMembership(Psr);
 
+            var memberToPost = CreateMembership(Psr);
+
             expected.MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
 
             // Act
-            var result = await sut.Post(expected);
+            var result = await sut.Post(memberToPost);
 
             var resolvedResult = resolver.GetObjectResult(expected, result);
 
@@ -128,7 +133,6 @@ namespace FeatureTests.Membership
             // Arrange
             var expected = CreateMembership(1000006);
 
-            expected.MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 1;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 1;
 
@@ -184,7 +188,6 @@ namespace FeatureTests.Membership
         {
             return new EF_Spike.Membership.Model.Membership
             {
-                MembershipReference = 1,
                 Psrnumber = psr,
                 SectionNumber = 0,
                 LevyTagTypeReference = 2,
@@ -203,7 +206,6 @@ namespace FeatureTests.Membership
         {
            return new MembershipDetails
            {
-               MembershipReference = 1,
                MembershipBenefitTypeReference = 1,
                MembershipTypeReference = 1,
                NumberOfMembers = 10,
@@ -216,7 +218,6 @@ namespace FeatureTests.Membership
         {
             return new MembershipAverageAgeBasiss
             {
-                MembershipReference = 1,
                 MembershipAverageAgeBasis = 1,
                 StartEventReference = 1
             };
