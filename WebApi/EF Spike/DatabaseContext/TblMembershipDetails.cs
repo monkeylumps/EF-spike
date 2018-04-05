@@ -1,4 +1,7 @@
-﻿namespace EF_Spike.DatabaseContext
+﻿using System;
+using System.Collections.Generic;
+
+namespace EF_Spike.DatabaseContext
 {
     public partial class TblMembershipDetails
     {

@@ -21,6 +21,8 @@ namespace EF_Spike.Membership.Handler
         {
             var membership = context.TblMembership.Where(x => x.Psrnumber == request.Membership.Psrnumber && x.EndDate == null && x.EndEventReference == null);
 
+
+
             if (await membership.AnyAsync(cancellationToken))
             {
                 foreach (var tblMembership in membership)
