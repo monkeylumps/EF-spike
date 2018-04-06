@@ -6,31 +6,20 @@ using EF_Spike.DatabaseContext;
 using EF_Spike.Membership.Handler;
 using MediatR;
 using MediatR.Pipeline;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using SimpleInjector;
 
 namespace FeatureTests.Tools
 {
-    public class ConfigureIOC
+    public class ConfigureIoc
     {
         private readonly Container container = new Container();
 
-        public Container Configure(SqliteConnection connection)
+        public Container Configure(DbContextOptionsBuilder<RegistryContext> optionsBuilder)
         {
-            var connection2 = @"Server=.;Database=Registry;Trusted_Connection=True;";
             container.Register(() =>
             {
-                var options = new DbContextOptionsBuilder<RegistryContext>();
-                if (!options.IsConfigured)
-                {
-                    options.UseSqlite(connection)
-                        .ConfigureWarnings(x => x.Ignore(InMemoryEventId.TransactionIgnoredWarning));
-                    //options.UseSqlServer(connection2);
-                }
-
-                return new RegistryContext(options.Options);
+                return new RegistryContext(optionsBuilder.Options);
             }, Lifestyle.Singleton);
 
             var assemblies = GetAssemblies().ToArray();

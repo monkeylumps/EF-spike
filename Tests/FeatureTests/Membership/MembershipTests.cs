@@ -7,6 +7,8 @@ using EF_Spike.Membership.Model;
 using FeatureTests.Tools;
 using MediatR;
 using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Xunit;
 
 namespace FeatureTests.Membership
@@ -29,8 +31,15 @@ namespace FeatureTests.Membership
 
             connection.Open();
 
-            var ioc = new ConfigureIOC();
-            var container = ioc.Configure(connection);
+            var optionsBuilder = new DbContextOptionsBuilder<RegistryContext>();
+
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlite(connection);
+            }
+
+            var ioc = new ConfigureIoc();
+            var container = ioc.Configure(optionsBuilder);
 
             sut = new MembershipController(container.GetInstance<IMediator>());
 

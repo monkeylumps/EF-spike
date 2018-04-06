@@ -19,7 +19,7 @@ namespace EF_Spike.Membership.Handler
         {
             var membership = await context.TblMembership.FirstOrDefaultAsync(x => x.Psrnumber == query.Psr && x.EndDate == null && x.EndEventReference == null, cancellationToken);
 
-            if (membership == null) return new Model.Membership();
+            if (membership == null) return null;
 
             return AutoMapper.Mapper.Map<TblMembership, Model.Membership>(membership);
         }

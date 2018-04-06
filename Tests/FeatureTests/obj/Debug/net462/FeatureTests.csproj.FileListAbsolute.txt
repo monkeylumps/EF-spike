@@ -1,3 +1,5 @@
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\x86\e_sqlite3.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\x64\e_sqlite3.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\xunit.runner.visualstudio.testadapter.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\xunit.runner.reporters.net452.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\xunit.runner.utility.net452.dll
@@ -64,12 +66,13 @@ C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.CodeAnalys
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.CodeAnalysis.Razor.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.CodeAnalysis.Workspaces.Desktop.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Data.Sqlite.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.DotNet.PlatformAbstractions.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.Design.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.InMemory.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.Relational.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.Relational.Design.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.SqlServer.Design.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.Caching.Abstractions.dll
@@ -87,6 +90,7 @@ C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.DependencyModel.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.FileProviders.Composite.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.Hosting.Abstractions.dll
@@ -121,6 +125,10 @@ C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SimpleInjector.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.Mvc.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.Mvc.Core.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.batteries_green.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.batteries_v2.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.core.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.provider.e_sqlite3.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\System.Buffers.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\System.Collections.Immutable.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\System.ComponentModel.Annotations.dll
@@ -241,6 +249,9 @@ C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\System.Xml.XmlSerial
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\System.Xml.XPath.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\System.Xml.XPath.XDocument.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\EF Spike.exe
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Swashbuckle.AspNetCore.Swagger.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\EF Spike.pdb
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\EF Spike.exe.config
 C:\Code\Github\EF-spike\Tests\FeatureTests\obj\Debug\net462\FeatureTests.csprojResolveAssemblyReference.cache
@@ -251,15 +262,3 @@ C:\Code\Github\EF-spike\Tests\FeatureTests\obj\Debug\net462\FeatureTests.Assembl
 C:\Code\Github\EF-spike\Tests\FeatureTests\obj\Debug\net462\FeatureTests.csproj.CopyComplete
 C:\Code\Github\EF-spike\Tests\FeatureTests\obj\Debug\net462\FeatureTests.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\obj\Debug\net462\FeatureTests.pdb
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\x86\e_sqlite3.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\x64\e_sqlite3.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Data.Sqlite.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.EntityFrameworkCore.Sqlite.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.batteries_green.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.batteries_v2.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.core.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SQLitePCLRaw.provider.e_sqlite3.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Extensions.FileProviders.Embedded.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Swashbuckle.AspNetCore.Swagger.dll
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerUI.dll
