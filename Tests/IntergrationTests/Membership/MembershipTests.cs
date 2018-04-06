@@ -82,13 +82,16 @@ namespace IntergrationTests.Membership
         public async void PostMembershipIfPsrMatches()
         {
             // Arrange
-            var expected = CreateMembership(9999998);
+            const int testPsr = 9999998;
+            var expected = CreateMembership(testPsr);
 
-            var memberToPost = CreateMembership(9999998);
+            var memberToPost = CreateMembership(testPsr);
 
             expected.MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
+
+            CreateScheme(testPsr);
 
             // Act
             var result = await sut.Post(memberToPost);
@@ -106,13 +109,20 @@ namespace IntergrationTests.Membership
             var events = registryContext.TblEvent.Where(x => x.Psrnumber == Psr && x.EventType == 8);
 
             Assert.NotEmpty(events);
+
+            var dbMember = registryContext.TblMembership.Include(x => x.TblMembershipDetails)
+                .Include(x => x.TblMembershipAverageAgeBasis).FirstOrDefault(x =>
+                    x.Psrnumber == testPsr && x.EndDate != null && x.EndEventReference != null);
+
+            Assert.NotNull(dbMember);
         }
 
         [Fact(Skip = "IntTest")]
         public async void PostMembershipIfTransationFails()
         {
             // Arrange
-            var expected = CreateMembership(1000006);
+            const int testPsr = 1000006;
+            var expected = CreateMembership(testPsr);
 
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 1;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 1;
@@ -126,37 +136,70 @@ namespace IntergrationTests.Membership
             Assert.NotNull(resolvedResult);
             Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
 
-            var members = registryContext.TblMembership.Where(x => x.Psrnumber == 1000006 && x.EndEventReference != null);
+            var members = registryContext.TblMembership.Where(x => x.Psrnumber == testPsr && x.EndEventReference != null);
 
             Assert.Empty(members);
 
-            var events = registryContext.TblEvent.Where(x => x.Psrnumber == 1000006);
+            var events = registryContext.TblEvent.Where(x => x.Psrnumber == testPsr);
 
             Assert.Empty(events);
+
+            var dbMember = registryContext.TblMembership.Include(x => x.TblMembershipDetails)
+                .Include(x => x.TblMembershipAverageAgeBasis).FirstOrDefault(x =>
+                    x.Psrnumber == testPsr && x.EndDate != null && x.EndEventReference != null);
+
+            Assert.Null(dbMember);
         }
 
         [Fact(Skip = "IntTest")]
         public async void GetNotApplicableIfPsrMatches()
         {
             // Arrange
-            var expected = CreateMembership(9999998);
+            var testPsr = 9999997;
+            var expected = CreateMembership(testPsr);
 
-            expected.MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipAverageAgeBasis = 3;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
 
+            CreateScheme(testPsr);
+
             await sut.Post(expected);
 
             // Act
-            var result = await sut.GetNotApplicable(Psr);
+            var result = await sut.GetNotApplicable(testPsr);
 
             var resolvedResult = resolver.GetObjectResult(new List<EF_Spike.Membership.Model.Membership> { expected }, result);
 
             // Assert
             Assert.NotNull(resolvedResult);
             Assert.Equal(200, resolvedResult.Value.objectResult.StatusCode);
-            Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
+        }
+
+        private async void CreateScheme(int psr)
+        {
+            var scheme = registryContext.TblScheme.FirstOrDefault(x => x.Psrnumber == psr);
+
+            if (scheme == null)
+            {
+                registryContext.Add(new TblScheme
+                {
+                    Psrnumber = psr
+                });
+
+                var section = registryContext.TblSection.FirstOrDefault(x => x.Psrnumber == psr);
+
+                if (section == null)
+                {
+                    registryContext.Add(new TblSection
+                    {
+                        Psrnumber = psr,
+                        SectionNumber = 0
+                    });
+                }
+            }
+
+            await registryContext.SaveChangesAsync();
         }
 
         private TblMembership CreateTblMembership(int psr)

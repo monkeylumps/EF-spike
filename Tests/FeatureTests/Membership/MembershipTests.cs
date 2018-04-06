@@ -91,18 +91,15 @@ namespace FeatureTests.Membership
         [Fact]
         public async void GetMembershipIfNoPsrMatch()
         {
-            // Arrange
-            var expected = new EF_Spike.Membership.Model.Membership();
-
             // Act
             var result = await sut.Get(10000006);
 
-            var resolvedResult = resolver.GetObjectResult(expected, result);
+            var resolvedResult = resolver.GetObjectResult(string.Empty, result);
 
             // Assert
             Assert.NotNull(resolvedResult);
             Assert.Equal(200, resolvedResult.Value.objectResult.StatusCode);
-            Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
+            Assert.True(resolvedResult.Value.result == "null");
         }
 
         [Fact]
