@@ -7,6 +7,8 @@ using EF_Spike.Membership.Model;
 using FeatureTests.Tools;
 using MediatR;
 using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Xunit;
 
 namespace FeatureTests.Membership
@@ -29,8 +31,15 @@ namespace FeatureTests.Membership
 
             connection.Open();
 
-            var ioc = new ConfigureIOC();
-            var container = ioc.Configure(connection);
+            var optionsBuilder = new DbContextOptionsBuilder<RegistryContext>();
+
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlite(connection);
+            }
+
+            var ioc = new ConfigureIoc();
+            var container = ioc.Configure(optionsBuilder);
 
             sut = new MembershipController(container.GetInstance<IMediator>());
 
@@ -82,18 +91,15 @@ namespace FeatureTests.Membership
         [Fact]
         public async void GetMembershipIfNoPsrMatch()
         {
-            // Arrange
-            var expected = new EF_Spike.Membership.Model.Membership();
-
             // Act
             var result = await sut.Get(10000006);
 
-            var resolvedResult = resolver.GetObjectResult(expected, result);
+            var resolvedResult = resolver.GetObjectResult(string.Empty, result);
 
             // Assert
             Assert.NotNull(resolvedResult);
             Assert.Equal(200, resolvedResult.Value.objectResult.StatusCode);
-            Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
+            Assert.True(resolvedResult.Value.result == "null");
         }
 
         [Fact]

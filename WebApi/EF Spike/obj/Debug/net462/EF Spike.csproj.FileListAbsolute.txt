@@ -181,6 +181,7 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.De
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.DependencyModel.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.FileProviders.Abstractions.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.FileProviders.Composite.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.FileProviders.Embedded.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.FileProviders.Physical.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.Hosting.Abstractions.dll
@@ -331,6 +332,10 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XmlDocument.
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XmlSerializer.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XPath.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XPath.XDocument.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.Swagger.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.exe.config
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csproj.CoreCompileInputs.cache
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.AssemblyInfoInputs.cache
@@ -339,8 +344,3 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csproj.CopyCom
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.exe
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.pdb
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csprojResolveAssemblyReference.cache
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.Swagger.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Extensions.FileProviders.Embedded.dll

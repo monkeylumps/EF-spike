@@ -39,7 +39,7 @@ namespace EF_Spike
         {
             services.AddMvc();
 
-            connection = @"Server=.;Database=Registry;Trusted_Connection=True;";
+            connection = @"Server=Registry;Database=Registry;Trusted_Connection=True;";
 
             services.AddDbContext<RegistryContext>(builder =>
             {

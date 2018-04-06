@@ -21,6 +21,8 @@ namespace EF_Spike.DatabaseContext
         public virtual DbSet<TblMembershipBenefitType> TblMembershipBenefitType { get; set; }
         public virtual DbSet<TblMembershipDetails> TblMembershipDetails { get; set; }
         public virtual DbSet<TblMembershipType> TblMembershipType { get; set; }
+        public virtual DbSet<TblScheme> TblScheme { get; set; }
+        public virtual DbSet<TblSection> TblSection { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -139,6 +141,12 @@ namespace EF_Spike.DatabaseContext
                 entity.Property(e => e.EndDate).HasColumnType("smalldatetime");
 
                 entity.Property(e => e.Psrnumber).HasColumnName("PSRNumber");
+
+                entity.HasOne(d => d.TblSection)
+                    .WithMany(p => p.TblMembership)
+                    .HasForeignKey(d => new { d.Psrnumber, d.SectionNumber })
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Membership_Section");
             });
 
             modelBuilder.Entity<TblMembershipAverageAgeBasis>(entity =>
@@ -221,6 +229,32 @@ namespace EF_Spike.DatabaseContext
                     .IsRequired()
                     .HasMaxLength(30)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<TblScheme>(entity =>
+            {
+                entity.HasKey(e => e.Psrnumber);
+
+                entity.ToTable("tbl_Scheme");
+
+                entity.Property(e => e.Psrnumber)
+                    .HasColumnName("PSRNumber")
+                    .ValueGeneratedNever();
+            });
+
+            modelBuilder.Entity<TblSection>(entity =>
+            {
+                entity.HasKey(e => new { e.Psrnumber, e.SectionNumber });
+
+                entity.ToTable("tbl_Section");
+
+                entity.Property(e => e.Psrnumber).HasColumnName("PSRNumber");
+
+                entity.HasOne(d => d.PsrnumberNavigation)
+                    .WithMany(p => p.TblSection)
+                    .HasForeignKey(d => d.Psrnumber)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Section_Scheme");
             });
         }
     }

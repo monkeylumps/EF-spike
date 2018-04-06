@@ -17,9 +17,9 @@ namespace EF_Spike.Membership.Handler
 
         public async Task<Model.Membership> Handle(GetMembership query, CancellationToken cancellationToken)
         {
-            var membership = await context.TblMembership.FirstOrDefaultAsync(x => x.Psrnumber == query.Psr && x.EndDate == null && x.EndEventReference == null, cancellationToken);
+            var membership = await context.TblMembership.Include(x => x.TblMembershipDetails).Include(x => x.TblMembershipAverageAgeBasis).FirstOrDefaultAsync(x => x.Psrnumber == query.Psr && x.EndDate == null && x.EndEventReference == null, cancellationToken);
 
-            if (membership == null) return new Model.Membership();
+            if (membership == null) return null;
 
             return AutoMapper.Mapper.Map<TblMembership, Model.Membership>(membership);
         }

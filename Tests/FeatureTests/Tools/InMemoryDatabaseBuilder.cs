@@ -13,6 +13,17 @@ namespace FeatureTests.Tools
 
         public void AddReferanceData(RegistryContext registryContext, int psr)
         {
+            AddEntityToDb(new TblScheme
+            {
+                Psrnumber = psr
+            }, registryContext);
+
+            AddEntityToDb(new TblSection
+            {
+                Psrnumber = psr,
+                SectionNumber = 0
+            }, registryContext);
+
             AddEntityToDb(new TblMembershipBenefitType
             {
                 MembershipBenefitTypeReference = 1,
