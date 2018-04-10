@@ -6,12 +6,6 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-
-
-
-
-
-
 ALTER PROCEDURE [dbo].[usp_Create_Membership]
 	-- UserDetails
 	@CreatedBy VARCHAR(50),
@@ -63,110 +57,7 @@ ALTER PROCEDURE [dbo].[usp_Create_Membership]
 	@AgeProfiling50to59	int = NULL ,
 	@AgeProfiling60Plus	int = NULL
 AS
-/*
-Created by: John-Mark Newton
-Created on: 29/06/2006
---------------------------------------------------------------------
-Input parameters:
-	-- UserDetails
-	@UserId VARCHAR(50)
 
-	-- Membership Data
-	@PSRNumber INT
-	@SectionNumber SMALLINT
-	@LevyTagTypeReference SMALLINT = NULL
-	@EffectiveDate SMALLDATETIME
-	@NotificationDate SMALLDATETIME
-	@MembershipReference INT
-	@PSRNumber INT
-	@SectionNumber SMALLINT
-
-	-- MembershipDetail Data
-	-- DC Data
-	@ActiveDC INT = NULL
-	@DeferredDC INT = NULL
-	@PensionerDC INT = NULL
-	@TotalDC INT = NULL
-	@PensionCreditDC INT = NULL
-
-	-- DB Data
-	@ActiveDB INT = NULL
-	@DeferredDB INT = NULL
-	@PensionerDB INT = NULL
-	@TotalDB INT = NULL
-	@PensionCreditDB INT = NULL
-
-	-- Partial DB Data
-	@ActivePartialDB INT = NULL
-	@DeferredPartialDB INT = NULL
-	@PensionerPartialDB INT = NULL
-	@TotalPartialDB INT = NULL
-	@PensionCreditPartialDB INT = NULL
-
-	-- Excluded Members
-	@ActiveExcludedMembers INT = NULL
-	@DeferredExcludedMembers INT = NULL
-	@PensionerExcludedMembers INT = NULL
-	@TotalExcludedMembers INT = NULL
-
-	-- Whole Membership
-	@WholeMembership INT = NULL
-
-	-- Average Age
-	@ActiveAverageAge INT = NULL
-	@DeferredAverageAge INT = NULL
-	@PensionerAverageAge INT = NULL
-
-	-- Membership Profiling
-
-	@AgeProfiling50to59	int = NULL
-	@AgeProfiling60Plus	int = NULL
-
-Returns:
-Called from:
-Purpose:
-	Amend an existing membership and its associated details
-Comments:
-To test:
-
-====================================================================
-Edited by: John-Mark Newton
-Edited on: 07/07/2006
-Comments: Fix amendment of levy tagged membership
---------------------------------------------------------------------
-Edited by: Tim King
-Edited on: 06/09/2006
-Comments: Changed LevyYear replacement update processing
---------------------------------------------------------------------
-Edited by: Tim King
-Edited on: 12/09/2006
-Comments: Changed LevyYear replacement update processing ev.NotificationDate <=  @NotificationDate
---------------------------------------------------------------------
-Edited by: Tim King
-Edited on: 18/09/2006
-Comments: Changed LevyYear replacement update processing @ExistingNotificationDate <= @NotificationDate
---------------------------------------------------------------------
-Edited by: Tim King
-Edited on: 18/09/2006
-Comments: Added non levy specific history handling code
---------------------------------------------------------------------
-Edited by: Tim King
-Edited on: 09/01/2006
-Comments: Added extra update to end event existing non-levy specific membership if notified earlier
---------------------------------------------------------------------
-Edited by: Chanel Uili
-Edited on: 31/1/07
-Comments: Amended to address 'Less than 2' processing
--------------------------------------------------------------------
-Edited by: Tim King
-Edited on: 09/01/07
-Comments: Fixed non-levy end dating broken by 'Less than 2' processing
--------------------------------------------------------------------
-Edited by: Richard Difford-Smith
-Edited on: 21 Jan 2009
-Comments:  Record Member Age Profiling for Membership
---------------------------------------------------------------------
-*/
 
 SET NOCOUNT ON
 

@@ -8,7 +8,6 @@ using FeatureTests.Tools;
 using MediatR;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
 using Xunit;
 
 namespace FeatureTests.Membership

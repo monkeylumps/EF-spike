@@ -79,6 +79,12 @@ namespace FeatureTests.Tools
                 MembershipAverageAgeBasis = 3,
             }, registryContext);
 
+            AddEntityToDb(new TblLevyTagType
+            {
+                LevyTagTypeReference = 2,
+                LevyTagDescription = "test"
+            }, registryContext);
+
             AddEntityToDb(new TblEvent
             {
                 EventType = 1,

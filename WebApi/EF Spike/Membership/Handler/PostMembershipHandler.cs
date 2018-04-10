@@ -23,15 +23,13 @@ namespace EF_Spike.Membership.Handler
 
         public async Task<Model.Membership> Handle(PostMembership request, CancellationToken cancellationToken)
         {
-            var membership = context.TblMembership.Where(x => x.Psrnumber == request.Membership.Psrnumber && x.EndDate == null && x.EndEventReference == null);
-
             using (var transaction = await context.Database.BeginTransactionAsync(cancellationToken))
             {
                 try
                 {
                     var eventId = await mediator.Send(new CreateEvent { Event = request.Event }, cancellationToken);
 
-                    int replaceMembershipReference = 0;
+                    var replaceMembershipReference = 0;
                     var endEventReference = 0;
                     DateTime existingEffectiveDate;
                     DateTime? existingNotificationDate = null;
@@ -120,8 +118,8 @@ namespace EF_Spike.Membership.Handler
                     }
                     else
                     {
-                        var lessThan2Members = await context.TblMembership
-                            .Where(x => x.MembershipReference == request.Membership.MembershipReference).Join(
+                        var lessThan2Members = await context.TblMembership.Where(x =>
+                            x.MembershipReference == request.Membership.MembershipReference).Join(
                                 context.TblEvent, tblMembership => tblMembership.StartEventReference,
                                 e => e.EventReference,
                                 (tblMembership, e) => new {e.NotificationDate, Membership = tblMembership}).FirstOrDefaultAsync(cancellationToken);
@@ -139,10 +137,90 @@ namespace EF_Spike.Membership.Handler
                         var memberToAdd = AutoMapper.Mapper.Map<Model.Membership, TblMembership>(request.Membership);
                         await context.AddAsync(memberToAdd, cancellationToken);
 
+                        await context.SaveChangesAsync(cancellationToken);
+
                         if (request.Membership.LevyTagTypeReference == null ||
-                            request.Membership.LevyTagTypeReference < lessThan2Type)
+                            request.Membership.LevyTagTypeReference != lessThan2Type)
                         {
 
+
+                            var lessThan2MembersQuery = context.TblMembership.Where(x =>
+                                    x.MembershipReference != memberToAdd.MembershipReference &&
+                                    x.Psrnumber == request.Membership.Psrnumber &&
+                                    x.SectionNumber == request.Membership.SectionNumber &&
+                                    x.LevyTagTypeReference == request.Membership.LevyTagTypeReference &&
+                                    x.EndEventReference == null)
+                                .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
+                                    e => e.EventReference,
+                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate);
+
+                            foreach (var item in lessThan2MembersQuery)
+                            {
+                                item.Membership.EndEventReference = endEventReference;
+                            }
+
+                            context.UpdateRange(lessThan2MembersQuery.Select(x => x.Membership));
+                            await context.SaveChangesAsync(cancellationToken);
+
+
+                            lessThan2MembersQuery = context.TblMembership.Where(x =>
+                                    x.MembershipReference == memberToAdd.MembershipReference &&
+                                    x.Psrnumber == request.Membership.Psrnumber &&
+                                    x.SectionNumber == request.Membership.SectionNumber &&
+                                    x.LevyTagTypeReference == null &&
+                                    x.EndEventReference == null)
+                                .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
+                                    e => e.EventReference,
+                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate);
+
+                            foreach (var item in lessThan2MembersQuery)
+                            {
+                                item.Membership.EndEventReference = endEventReference;
+                            }
+
+                            context.UpdateRange(lessThan2MembersQuery.Select(x => x.Membership));
+                            await context.SaveChangesAsync(cancellationToken);
+                        }
+                        else if (request.Membership.LevyTagTypeReference == lessThan2Type &&
+                                 request.Membership.EffectiveDate == existingEffectiveDate)
+                        {
+                            var lessThan2MembersQuery = context.TblMembership.Where(x =>
+                                    x.MembershipReference != memberToAdd.MembershipReference &&
+                                    x.Psrnumber == request.Membership.Psrnumber &&
+                                    x.SectionNumber == request.Membership.SectionNumber &&
+                                    x.LevyTagTypeReference == request.Membership.LevyTagTypeReference &&
+                                    x.EndEventReference == null &&
+                                    x.EffectiveDate == request.Membership.EffectiveDate)
+                                .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
+                                    e => e.EventReference,
+                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate);
+
+                            foreach (var item in lessThan2MembersQuery)
+                            {
+                                item.Membership.EndEventReference = endEventReference;
+                            }
+
+                            context.UpdateRange(lessThan2MembersQuery.Select(x => x.Membership));
+                            await context.SaveChangesAsync(cancellationToken);
+
+                            lessThan2MembersQuery = context.TblMembership.Where(x =>
+                                    x.MembershipReference == memberToAdd.MembershipReference &&
+                                    x.Psrnumber == request.Membership.Psrnumber &&
+                                    x.SectionNumber == request.Membership.SectionNumber &&
+                                    x.LevyTagTypeReference == null &&
+                                    x.EndEventReference == null &&
+                                    x.EffectiveDate == request.Membership.EffectiveDate)
+                                .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
+                                    e => e.EventReference,
+                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate);
+
+                            foreach (var item in lessThan2MembersQuery)
+                            {
+                                item.Membership.EndEventReference = endEventReference;
+                            }
+
+                            context.UpdateRange(lessThan2MembersQuery.Select(x => x.Membership));
+                            await context.SaveChangesAsync(cancellationToken);
                         }
                     }
                 }
