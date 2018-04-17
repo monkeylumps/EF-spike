@@ -78,17 +78,43 @@ namespace IntergrationTests.Membership
             Assert.True(resolvedResult.Value.result == "null");
         }
 
+        [Fact]
+        public async void PostMembership()
+        {
+            // Arrange
+            var expected = CreateMembership(Psr);
+
+            var memberToPost = CreateMembership(Psr);
+
+            // Act
+            var result = await sut.Post(memberToPost);
+
+            var resolvedResult = resolver.GetObjectResult(expected, result);
+
+            // Assert
+            Assert.NotNull(resolvedResult);
+            Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
+
+            var members = registryContext.TblMembership.Where(x => x.Psrnumber == Psr && x.EndEventReference != null);
+
+            Assert.NotEmpty(members);
+
+            var events = registryContext.TblEvent.Where(x => x.Psrnumber == Psr && x.EventType == 8);
+
+            Assert.NotEmpty(events);
+        }
+
         [Fact(Skip = "IntTest")]
         public async void PostMembershipIfPsrMatches()
         {
             // Arrange
-            const int testPsr = 9999998;
+            const int testPsr = 12007081;
             var expected = CreateMembership(testPsr);
 
             var memberToPost = CreateMembership(testPsr);
 
             expected.MembershipReference = 2;
-            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
+            //expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
 
             CreateScheme(testPsr);
@@ -221,8 +247,8 @@ namespace IntergrationTests.Membership
                 AgeProfiling50to59 = null,
                 AgeProfiling60Plus = null,
                 StartEventReference = 5,
-                TblMembershipDetails = new List<MembershipDetails> { CreateMembershipDetails() },
-                TblMembershipAverageAgeBasis = new List<MembershipAverageAgeBasiss> { CreateMembershipAverageAgeBasis() }
+                TblMembershipDetails = new List<MembershipDetails> { CreateMembershipDetails() }
+                //TblMembershipAverageAgeBasis = new List<MembershipAverageAgeBasiss> { CreateMembershipAverageAgeBasis() }
             };
         }
 

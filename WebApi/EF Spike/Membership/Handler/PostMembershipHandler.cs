@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading;
 using System.Threading.Tasks;
 using EF_Spike.DatabaseContext;
@@ -30,11 +29,13 @@ namespace EF_Spike.Membership.Handler
                     var eventId = await mediator.Send(new CreateEvent { Event = request.Event }, cancellationToken);
 
                     var replaceMembershipReference = 0;
-                    var endEventReference = 0;
-                    DateTime existingEffectiveDate;
+                    int? endEventReference = null;
+                    var existingEffectiveDate = new DateTime();
                     DateTime? existingNotificationDate = null;
-                    int existingMembershipReference;
+                    var existingMembershipReference = 0;
                     short lessThan2Type = 0;
+
+                    request.Membership.StartEventReference = eventId;
 
                     if (request.Membership.MembershipReference == 0)
                     {
@@ -66,11 +67,12 @@ namespace EF_Spike.Membership.Handler
                                     cancellationToken);
                             }
 
-                            existingNotificationDate = lessThan2Members.NotificationDate;
-                            existingMembershipReference = lessThan2Members.Membership.MembershipReference;
-                            existingEffectiveDate = lessThan2Members.Membership.EffectiveDate;
-
-
+                            if (lessThan2Members != null)
+                            {
+                                existingNotificationDate = lessThan2Members.NotificationDate;
+                                existingMembershipReference = lessThan2Members.Membership.MembershipReference;
+                                existingEffectiveDate = lessThan2Members.Membership.EffectiveDate;
+                            }
                         }
                         else
                         {
@@ -78,9 +80,12 @@ namespace EF_Spike.Membership.Handler
                                 x => x.Membership.LevyTagTypeReference == null &&
                                      x.Membership.EffectiveDate == request.Membership.EffectiveDate, cancellationToken);
 
-                            existingNotificationDate = lessThan2Members.NotificationDate;
-                            existingMembershipReference = lessThan2Members.Membership.MembershipReference;
-                            existingEffectiveDate = lessThan2Members.Membership.EffectiveDate;
+                            if (lessThan2Members != null)
+                            {
+                                existingNotificationDate = lessThan2Members.NotificationDate;
+                                existingMembershipReference = lessThan2Members.Membership.MembershipReference;
+                                existingEffectiveDate = lessThan2Members.Membership.EffectiveDate;
+                            }
                         }
 
                         if (existingNotificationDate <= request.Event.NotificationDate)
@@ -104,12 +109,15 @@ namespace EF_Spike.Membership.Handler
                             request.Membership.LevyTagTypeReference == lessThan2Type &&
                             request.Membership.EffectiveDate == existingEffectiveDate)
                         {
-                            var member = await context.TblMembership.FirstAsync(
+                            var member = await context.TblMembership.FirstOrDefaultAsync(
                                 x => x.MembershipReference == replaceMembershipReference, cancellationToken);
 
-                            context.TblMembership.Update(member);
+                            if (member != null)
+                            {
+                                context.TblMembership.Update(member);
 
-                            await context.SaveChangesAsync(cancellationToken);
+                                await context.SaveChangesAsync(cancellationToken);
+                            }
                         }
 
                         transaction.Commit();
@@ -124,8 +132,11 @@ namespace EF_Spike.Membership.Handler
                                 e => e.EventReference,
                                 (tblMembership, e) => new {e.NotificationDate, Membership = tblMembership}).FirstOrDefaultAsync(cancellationToken);
 
-                        existingNotificationDate = lessThan2Members.NotificationDate;
-                        existingEffectiveDate = lessThan2Members.Membership.EffectiveDate;
+                        if (lessThan2Members != null)
+                        {
+                            existingNotificationDate = lessThan2Members.NotificationDate;
+                            existingEffectiveDate = lessThan2Members.Membership.EffectiveDate;
+                        }
 
                         if (existingNotificationDate > request.Event.NotificationDate)
                         {

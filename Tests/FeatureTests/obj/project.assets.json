@@ -1855,66 +1855,6 @@
           "lib/net45/SQLitePCLRaw.provider.e_sqlite3.dll": {}
         }
       },
-      "Swashbuckle.AspNetCore/2.4.0": {
-        "type": "package",
-        "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "2.4.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "2.4.0",
-          "Swashbuckle.AspNetCore.SwaggerUI": "2.4.0"
-        },
-        "compile": {
-          "lib/net451/Swashbuckle.AspNetCore.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Swashbuckle.AspNetCore.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.Swagger/2.4.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc.Core": "1.0.4",
-          "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.4"
-        },
-        "compile": {
-          "lib/net451/Swashbuckle.AspNetCore.Swagger.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Swashbuckle.AspNetCore.Swagger.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.SwaggerGen/2.4.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Mvc.ApiExplorer": "1.0.4",
-          "Microsoft.AspNetCore.Mvc.Core": "1.0.4",
-          "Microsoft.AspNetCore.Mvc.DataAnnotations": "1.0.4",
-          "Swashbuckle.AspNetCore.Swagger": "2.4.0"
-        },
-        "frameworkAssemblies": [
-          "System.Xml"
-        ],
-        "compile": {
-          "lib/net451/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Swashbuckle.AspNetCore.SwaggerGen.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.SwaggerUI/2.4.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.AspNetCore.Routing": "1.0.4",
-          "Microsoft.AspNetCore.StaticFiles": "1.0.4",
-          "Microsoft.Extensions.FileProviders.Embedded": "1.0.1",
-          "Newtonsoft.Json": "9.0.1"
-        },
-        "compile": {
-          "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
-        },
-        "runtime": {
-          "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.dll": {}
-        }
-      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -2822,8 +2762,7 @@
           "Microsoft.VisualStudio.Web.BrowserLink": "2.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
           "SimpleInjector": "4.0.12",
-          "SimpleInjector.Integration.AspNetCore.Mvc": "4.0.12",
-          "Swashbuckle.AspNetCore": "2.4.0"
+          "SimpleInjector.Integration.AspNetCore.Mvc": "4.0.12"
         },
         "compile": {
           "bin/placeholder/EF Spike.dll": {}
@@ -4659,56 +4598,6 @@
         "sqlitepclraw.provider.e_sqlite3.net45.nuspec"
       ]
     },
-    "Swashbuckle.AspNetCore/2.4.0": {
-      "sha512": "zsFkF1NPnRk41NQ3B/SOhp2zhF+AiCitWALqgEP+jy2fgIyslBLNSZMtBctKnJKqzGgyiye3no7GJrJ0MTHXdg==",
-      "type": "package",
-      "path": "swashbuckle.aspnetcore/2.4.0",
-      "files": [
-        "lib/net451/Swashbuckle.AspNetCore.dll",
-        "lib/netstandard1.6/Swashbuckle.AspNetCore.dll",
-        "swashbuckle.aspnetcore.2.4.0.nupkg.sha512",
-        "swashbuckle.aspnetcore.nuspec"
-      ]
-    },
-    "Swashbuckle.AspNetCore.Swagger/2.4.0": {
-      "sha512": "gO+t8uBCQUDNjgAK5Mg56C5Pj88Z9WHBacm1njuMeDvbpEvFluNg8ocnDNYnwMcg1EcK8S+u+Xijzzf7PtpeXg==",
-      "type": "package",
-      "path": "swashbuckle.aspnetcore.swagger/2.4.0",
-      "files": [
-        "lib/net451/Swashbuckle.AspNetCore.Swagger.dll",
-        "lib/net451/Swashbuckle.AspNetCore.Swagger.xml",
-        "lib/netstandard1.6/Swashbuckle.AspNetCore.Swagger.dll",
-        "lib/netstandard1.6/Swashbuckle.AspNetCore.Swagger.xml",
-        "swashbuckle.aspnetcore.swagger.2.4.0.nupkg.sha512",
-        "swashbuckle.aspnetcore.swagger.nuspec"
-      ]
-    },
-    "Swashbuckle.AspNetCore.SwaggerGen/2.4.0": {
-      "sha512": "dDaKa1kLGjVNYHnTtv3BT+yg8fVHf3HRgpY4bjhRcjtJJtCHejPFWUF3DoIDB4c5mmlZoAvqn6iOtQW+Qj4wOg==",
-      "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggergen/2.4.0",
-      "files": [
-        "lib/net451/Swashbuckle.AspNetCore.SwaggerGen.dll",
-        "lib/net451/Swashbuckle.AspNetCore.SwaggerGen.xml",
-        "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerGen.dll",
-        "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerGen.xml",
-        "swashbuckle.aspnetcore.swaggergen.2.4.0.nupkg.sha512",
-        "swashbuckle.aspnetcore.swaggergen.nuspec"
-      ]
-    },
-    "Swashbuckle.AspNetCore.SwaggerUI/2.4.0": {
-      "sha512": "TwnD/Ibviaxvuemq1YssHruRuEQBoJFuWaONClth6ZSae9YcFyy00bWCjvXJvrlbmIDw3UKZwWQ5f+zGFIjaqw==",
-      "type": "package",
-      "path": "swashbuckle.aspnetcore.swaggerui/2.4.0",
-      "files": [
-        "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.dll",
-        "lib/net451/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.dll",
-        "lib/netstandard1.6/Swashbuckle.AspNetCore.SwaggerUI.xml",
-        "swashbuckle.aspnetcore.swaggerui.2.4.0.nupkg.sha512",
-        "swashbuckle.aspnetcore.swaggerui.nuspec"
-      ]
-    },
     "System.AppContext/4.3.0": {
       "sha512": "fKC+rmaLfeIzUhagxY17Q9siv/sPrjjKcfNg1Ic8IlQkZLipo8ljcaZQu4VtI4Jqbzjc2VTjzGLF6WmsRXAEgA==",
       "type": "package",
@@ -5872,7 +5761,7 @@
       ]
     },
     "System.Linq.Queryable/4.0.1": {
-      "sha512": "Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
+      "sha512": "QHF3Jy3HZ85u6Rk8yQmS7XYUuNP6Frx5MoNh/+ursp36kl6VqV99xPX7p0hM265Qyaq1072oC/1D9TLQ/669rg==",
       "type": "package",
       "path": "system.linq.queryable/4.0.1",
       "files": [
@@ -7559,7 +7448,7 @@
       ]
     },
     "xunit.analyzers/0.7.0": {
-      "sha512": "pEjPJ/pd+r9blGBJ9bXg961phkAiCl4k2DwxwWGEZyYC/7Tb1xJ1az0H18uGANX7zFIkvE5ZO1eZZ4vU7gny7w==",
+      "sha512": "YLyB3zDIbuliqMPOeGNp4BbNKrAMmoU0RI3DqJrPIaHJ2u1l3c9hILxUgY2DoKN2nSRgaIhGVdZ4tNSDtnaZQg==",
       "type": "package",
       "path": "xunit.analyzers/0.7.0",
       "files": [
@@ -7666,37 +7555,36 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dan\\.nuget\\packages\\": {},
+    "C:\\Users\\mothersd\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\code\\github\\EF-spike\\Tests\\FeatureTests\\FeatureTests.csproj",
+      "projectUniqueName": "C:\\Code\\Github\\EF-spike\\Tests\\FeatureTests\\FeatureTests.csproj",
       "projectName": "FeatureTests",
-      "projectPath": "C:\\code\\github\\EF-spike\\Tests\\FeatureTests\\FeatureTests.csproj",
-      "packagesPath": "C:\\Users\\Dan\\.nuget\\packages\\",
-      "outputPath": "C:\\code\\github\\EF-spike\\Tests\\FeatureTests\\obj\\",
+      "projectPath": "C:\\Code\\Github\\EF-spike\\Tests\\FeatureTests\\FeatureTests.csproj",
+      "packagesPath": "C:\\Users\\mothersd\\.nuget\\packages\\",
+      "outputPath": "C:\\Code\\Github\\EF-spike\\Tests\\FeatureTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Dan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\mothersd\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net462"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "http://tpr-tfs03:9090/nuget/TPR": {}
       },
       "frameworks": {
         "net462": {
           "projectReferences": {
-            "C:\\code\\github\\EF-spike\\WebApi\\EF Spike\\EF Spike.csproj": {
-              "projectPath": "C:\\code\\github\\EF-spike\\WebApi\\EF Spike\\EF Spike.csproj"
+            "C:\\Code\\Github\\EF-spike\\WebApi\\EF Spike\\EF Spike.csproj": {
+              "projectPath": "C:\\Code\\Github\\EF-spike\\WebApi\\EF Spike\\EF Spike.csproj"
             }
           }
         }

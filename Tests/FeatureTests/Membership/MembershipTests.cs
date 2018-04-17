@@ -112,6 +112,8 @@ namespace FeatureTests.Membership
             expected.MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
+            expected.StartEventReference = 2;
+            expected.EndEventReference = null;
 
             // Act
             var result = await sut.Post(memberToPost);
@@ -165,12 +167,13 @@ namespace FeatureTests.Membership
             // Arrange
             var expected = CreateMembership(Psr);
 
-            expected.MembershipReference = 2;
-            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipAverageAgeBasis = 3;
-            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
 
             await sut.Post(expected);
+
+            expected.MembershipReference = 2;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
+            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
 
             // Act
             var result = await sut.GetNotApplicable(Psr);
