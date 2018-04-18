@@ -46,7 +46,7 @@ namespace EF_Spike.Membership.Handler
                                 x.EndDate == null)
                             .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
                                 e => e.EventReference,
-                                (tblMembership, e) => new {e.NotificationDate, Membership = tblMembership});
+                                (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership });
 
                         var lessThan2Members = await lessThan2MembersQuery.FirstOrDefaultAsync(cancellationToken);
 
@@ -114,6 +114,7 @@ namespace EF_Spike.Membership.Handler
 
                             if (member != null)
                             {
+                                member.EndEventReference = eventId;
                                 context.TblMembership.Update(member);
 
                                 await context.SaveChangesAsync(cancellationToken);
@@ -130,7 +131,7 @@ namespace EF_Spike.Membership.Handler
                             x.MembershipReference == request.Membership.MembershipReference).Join(
                                 context.TblEvent, tblMembership => tblMembership.StartEventReference,
                                 e => e.EventReference,
-                                (tblMembership, e) => new {e.NotificationDate, Membership = tblMembership}).FirstOrDefaultAsync(cancellationToken);
+                                (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).FirstOrDefaultAsync(cancellationToken);
 
                         if (lessThan2Members != null)
                         {
@@ -153,8 +154,6 @@ namespace EF_Spike.Membership.Handler
                         if (request.Membership.LevyTagTypeReference == null ||
                             request.Membership.LevyTagTypeReference != lessThan2Type)
                         {
-
-
                             var lessThan2MembersQuery = context.TblMembership.Where(x =>
                                     x.MembershipReference != memberToAdd.MembershipReference &&
                                     x.Psrnumber == request.Membership.Psrnumber &&
@@ -172,7 +171,6 @@ namespace EF_Spike.Membership.Handler
 
                             context.UpdateRange(lessThan2MembersQuery.Select(x => x.Membership));
                             await context.SaveChangesAsync(cancellationToken);
-
 
                             lessThan2MembersQuery = context.TblMembership.Where(x =>
                                     x.MembershipReference == memberToAdd.MembershipReference &&

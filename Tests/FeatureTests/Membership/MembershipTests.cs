@@ -24,6 +24,8 @@ namespace FeatureTests.Membership
 
         private readonly SqliteConnection connection;
 
+        private readonly InMemoryDatabaseBuilder databaseBuilder;
+
         public MembershipTests()
         {
             connection = new SqliteConnection("DataSource=:memory:");
@@ -44,7 +46,7 @@ namespace FeatureTests.Membership
 
             resolver = new ObjectResultResolver();
 
-            var databaseBuilder = new InMemoryDatabaseBuilder();
+            databaseBuilder = new InMemoryDatabaseBuilder();
 
             AutoMapper.Mapper.Reset();
 
@@ -112,7 +114,7 @@ namespace FeatureTests.Membership
             expected.MembershipReference = 2;
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 2;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 2;
-            expected.StartEventReference = 2;
+            expected.StartEventReference = 6;
             expected.EndEventReference = null;
 
             // Act
@@ -138,7 +140,7 @@ namespace FeatureTests.Membership
         public async void PostMembershipIfTransationFails()
         {
             // Arrange
-            var expected = CreateMembership(1000006);
+            var expected = CreateMembership(1000007);
 
             expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 1;
             expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 1;
@@ -152,13 +154,135 @@ namespace FeatureTests.Membership
             Assert.NotNull(resolvedResult);
             Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
 
-            var members = registryContext.TblMembership.Where(x => x.Psrnumber == 1000006 && x.EndEventReference != null);
+            var members = registryContext.TblMembership.Where(x => x.Psrnumber == 1000007 && x.EndEventReference != null);
 
             Assert.Empty(members);
 
-            var events = registryContext.TblEvent.Where(x => x.Psrnumber == 1000006);
+            var events = registryContext.TblEvent.Where(x => x.Psrnumber == 1000007);
 
             Assert.Empty(events);
+        }
+
+        [Fact]
+        public async void PostMembershipIfLessThan2Type()
+        {
+            // Arrange
+            databaseBuilder.AddEntityToDb(CreateTblMembership(1000006), registryContext);
+
+            var expected = CreateMembership(1000006);
+
+            var memberToPost = CreateMembership(1000006);
+
+            expected.MembershipReference = 3;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 3;
+            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 3;
+            expected.StartEventReference = 6;
+            expected.EndEventReference = null;
+            expected.LevyTagTypeReference = 3;
+
+            memberToPost.LevyTagTypeReference = 3;
+
+            // Act
+            var result = await sut.Post(memberToPost);
+
+            var resolvedResult = resolver.GetObjectResult(expected, result);
+
+            // Assert
+            Assert.NotNull(resolvedResult);
+            Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
+            Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
+
+            var members = registryContext.TblMembership.Where(x => x.Psrnumber == 1000006 && x.EndEventReference != null);
+
+            Assert.NotEmpty(members);
+
+            var events = registryContext.TblEvent.Where(x => x.Psrnumber == 1000006 && x.EventType == 8);
+
+            Assert.NotEmpty(events);
+        }
+
+        [Fact]
+        public async void PostMembershipIfNoLevyTagType()
+        {
+            // Arrange
+            var existingMember = CreateTblMembership(1000006);
+            existingMember.LevyTagTypeReference = null;
+
+            databaseBuilder.AddEntityToDb(existingMember, registryContext);
+
+            var expected = CreateMembership(1000006);
+
+            var memberToPost = CreateMembership(1000006);
+
+            expected.MembershipReference = 3;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 3;
+            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 3;
+            expected.StartEventReference = 6;
+            expected.EndEventReference = null;
+            expected.LevyTagTypeReference = null;
+
+            memberToPost.LevyTagTypeReference = null;
+            memberToPost.EffectiveDate = Convert.ToDateTime("1996-03-31T00:00:00");
+
+            // Act
+            var result = await sut.Post(memberToPost);
+
+            var resolvedResult = resolver.GetObjectResult(expected, result);
+
+            // Assert
+            Assert.NotNull(resolvedResult);
+            Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
+            Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
+
+            var member = registryContext.TblMembership.ToList();
+            var members = registryContext.TblMembership.Where(x => x.Psrnumber == 1000006 && x.EndEventReference != null);
+
+            Assert.NotEmpty(members);
+
+            var events = registryContext.TblEvent.Where(x => x.Psrnumber == 1000006 && x.EventType == 8);
+
+            Assert.NotEmpty(events);
+        }
+
+        [Fact]
+        public async void PostMembershipIfNotificatinDateOlder()
+        {
+            // Arrange
+            var existingMember = CreateTblMembership(1000006);
+            existingMember.StartEventReference = 2;
+
+            databaseBuilder.AddEntityToDb(existingMember, registryContext);
+
+            var expected = CreateMembership(1000006);
+
+            var memberToPost = CreateMembership(1000006);
+
+            expected.MembershipReference = 3;
+            expected.TblMembershipAverageAgeBasis.FirstOrDefault().MembershipReference = 3;
+            expected.TblMembershipDetails.FirstOrDefault().MembershipReference = 3;
+            expected.StartEventReference = 6;
+            expected.EndEventReference = 6;
+
+            memberToPost.StartEventReference = 2;
+
+            var member = registryContext.TblMembership.Where(x => x.Psrnumber == 1000006).ToList();
+            // Act
+            var result = await sut.Post(memberToPost);
+
+            var resolvedResult = resolver.GetObjectResult(expected, result);
+
+            // Assert
+            Assert.NotNull(resolvedResult);
+            Assert.Equal(201, resolvedResult.Value.objectResult.StatusCode);
+            Assert.Equal(resolvedResult.Value.expected, resolvedResult.Value.result);
+
+            var members = registryContext.TblMembership.Where(x => x.Psrnumber == 1000006 && x.EndEventReference != null);
+
+            Assert.NotEmpty(members);
+
+            var events = registryContext.TblEvent.Where(x => x.Psrnumber == 1000006 && x.EventType == 8);
+
+            Assert.NotEmpty(events);
         }
 
         [Fact]
