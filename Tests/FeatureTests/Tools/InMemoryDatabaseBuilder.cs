@@ -18,6 +18,17 @@ namespace FeatureTests.Tools
                 Psrnumber = psr
             }, registryContext);
 
+            AddEntityToDb(new TblScheme
+            {
+                Psrnumber = 1000006
+            }, registryContext);
+
+            AddEntityToDb(new TblSection
+            {
+                Psrnumber = 1000006,
+                SectionNumber = 0
+            }, registryContext);
+
             AddEntityToDb(new TblSection
             {
                 Psrnumber = psr,
@@ -79,14 +90,50 @@ namespace FeatureTests.Tools
                 MembershipAverageAgeBasis = 3,
             }, registryContext);
 
+            AddEntityToDb(new TblLevyTagType
+            {
+                LevyTagTypeReference = 2,
+                LevyTagDescription = "test"
+            }, registryContext);
+
+            AddEntityToDb(new TblLevyTagType
+            {
+                LevyTagTypeReference = 3,
+                LevyTagDescription = "Less than 2"
+            }, registryContext);
+
             AddEntityToDb(new TblEvent
             {
                 EventType = 1,
                 Psrnumber = psr,
                 SectionNumber = 0,
                 UserId = "test",
+                CreateDateTime = DateTime.Now.AddDays(-7),
+                NotificationDate = DateTime.Now.AddDays(-7),
+                EventSourceReference = 1
+            }, registryContext);
+
+            AddEntityToDb(new TblEvent
+            {
+                EventReference = 5,
+                EventType = 1,
+                Psrnumber = psr,
+                SectionNumber = 0,
+                UserId = "test",
                 CreateDateTime = DateTime.Now,
-                NotificationDate = DateTime.Now,
+                NotificationDate = DateTime.Now.AddDays(-7),
+                EventSourceReference = 1
+            }, registryContext);
+
+            AddEntityToDb(new TblEvent
+            {
+                EventReference = 2,
+                EventType = 1,
+                Psrnumber = 1000006,
+                SectionNumber = 0,
+                UserId = "test",
+                CreateDateTime = DateTime.Now,
+                NotificationDate = DateTime.Now.AddDays(7),
                 EventSourceReference = 1
             }, registryContext);
         }

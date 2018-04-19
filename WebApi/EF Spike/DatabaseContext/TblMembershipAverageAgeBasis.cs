@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace EF_Spike.DatabaseContext
+﻿namespace EF_Spike.DatabaseContext
 {
     public partial class TblMembershipAverageAgeBasis
     {

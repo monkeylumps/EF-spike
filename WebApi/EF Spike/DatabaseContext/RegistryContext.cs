@@ -1,6 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace EF_Spike.DatabaseContext
 {
@@ -15,6 +13,7 @@ namespace EF_Spike.DatabaseContext
         public virtual DbSet<TblEventSource> TblEventSource { get; set; }
         public virtual DbSet<TblEventType> TblEventType { get; set; }
         public virtual DbSet<TblEventTypeGroup> TblEventTypeGroup { get; set; }
+        public virtual DbSet<TblLevyTagType> TblLevyTagType { get; set; }
         public virtual DbSet<TblMembership> TblMembership { get; set; }
         public virtual DbSet<TblMembershipAverageAgeBasis> TblMembershipAverageAgeBasis { get; set; }
         public virtual DbSet<TblMembershipAverageAgeBasisType> TblMembershipAverageAgeBasisType { get; set; }
@@ -121,6 +120,24 @@ namespace EF_Spike.DatabaseContext
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<TblLevyTagType>(entity =>
+            {
+                entity.HasKey(e => e.LevyTagTypeReference);
+
+                entity.ToTable("tbl_LevyTagType");
+
+                entity.Property(e => e.LevyTagDescription)
+                    .IsRequired()
+                    .HasMaxLength(15)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.LevyYearEndDate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.LevyYearStartDate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.Sryear).HasColumnName("SRYear");
+            });
+
             modelBuilder.Entity<TblMembership>(entity =>
             {
                 entity.HasKey(e => e.MembershipReference);
@@ -141,6 +158,11 @@ namespace EF_Spike.DatabaseContext
                 entity.Property(e => e.EndDate).HasColumnType("smalldatetime");
 
                 entity.Property(e => e.Psrnumber).HasColumnName("PSRNumber");
+
+                entity.HasOne(d => d.LevyTagTypeReferenceNavigation)
+                    .WithMany(p => p.TblMembership)
+                    .HasForeignKey(d => d.LevyTagTypeReference)
+                    .HasConstraintName("FK_Membership_LevyTagType");
 
                 entity.HasOne(d => d.TblSection)
                     .WithMany(p => p.TblMembership)

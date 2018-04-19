@@ -332,10 +332,6 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XmlDocument.
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XmlSerializer.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XPath.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\System.Xml.XPath.XDocument.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.Swagger.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.exe.config
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csproj.CoreCompileInputs.cache
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.AssemblyInfoInputs.cache

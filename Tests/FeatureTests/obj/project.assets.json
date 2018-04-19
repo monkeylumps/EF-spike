@@ -7578,7 +7578,6 @@
         "net462"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "http://tpr-tfs03:9090/nuget/TPR": {}
       },
       "frameworks": {

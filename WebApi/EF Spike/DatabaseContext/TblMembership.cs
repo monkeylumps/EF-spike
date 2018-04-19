@@ -22,6 +22,7 @@ namespace EF_Spike.DatabaseContext
         public int? AgeProfiling50to59 { get; set; }
         public int? AgeProfiling60Plus { get; set; }
 
+        public TblLevyTagType LevyTagTypeReferenceNavigation { get; set; }
         public TblSection TblSection { get; set; }
         public ICollection<TblMembershipAverageAgeBasis> TblMembershipAverageAgeBasis { get; set; }
         public ICollection<TblMembershipDetails> TblMembershipDetails { get; set; }

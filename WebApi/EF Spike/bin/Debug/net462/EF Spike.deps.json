@@ -155,11 +155,7 @@
           "System.Xml.XmlDocument.Reference": "4.0.3.0",
           "System.Xml.XmlSerializer": "4.0.11.0",
           "System.Xml.XPath.Reference": "4.0.3.0",
-          "System.Xml.XPath.XDocument.Reference": "4.1.0.0",
-          "Swashbuckle.AspNetCore": "2.3.0.0",
-          "Swashbuckle.AspNetCore.Swagger": "2.3.0.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "2.3.0.0",
-          "Swashbuckle.AspNetCore.SwaggerUI": "2.3.0.0"
+          "System.Xml.XPath.XDocument.Reference": "4.1.0.0"
         },
         "compile": {
           "EF Spike.exe": {}
@@ -2095,26 +2091,6 @@
         "dependencies": {
           "System.Xml.XPath": "4.3.0"
         }
-      },
-      "Swashbuckle.AspNetCore/2.3.0.0": {
-        "compile": {
-          "Swashbuckle.AspNetCore.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.Swagger/2.3.0.0": {
-        "compile": {
-          "Swashbuckle.AspNetCore.Swagger.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.SwaggerGen/2.3.0.0": {
-        "compile": {
-          "Swashbuckle.AspNetCore.SwaggerGen.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.SwaggerUI/2.3.0.0": {
-        "compile": {
-          "Swashbuckle.AspNetCore.SwaggerUI.dll": {}
-        }
       }
     },
     ".NETFramework,Version=v4.6.2/win7-x86": {
@@ -2252,11 +2228,7 @@
           "System.Xml.XmlDocument.Reference": "4.0.3.0",
           "System.Xml.XmlSerializer": "4.0.11.0",
           "System.Xml.XPath.Reference": "4.0.3.0",
-          "System.Xml.XPath.XDocument.Reference": "4.1.0.0",
-          "Swashbuckle.AspNetCore": "2.3.0.0",
-          "Swashbuckle.AspNetCore.Swagger": "2.3.0.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "2.3.0.0",
-          "Swashbuckle.AspNetCore.SwaggerUI": "2.3.0.0"
+          "System.Xml.XPath.XDocument.Reference": "4.1.0.0"
         },
         "runtime": {
           "EF Spike.exe": {}
@@ -3599,26 +3571,6 @@
         "dependencies": {
           "System.Xml.XPath": "4.3.0"
         }
-      },
-      "Swashbuckle.AspNetCore/2.3.0.0": {
-        "runtime": {
-          "Swashbuckle.AspNetCore.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.Swagger/2.3.0.0": {
-        "runtime": {
-          "Swashbuckle.AspNetCore.Swagger.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.SwaggerGen/2.3.0.0": {
-        "runtime": {
-          "Swashbuckle.AspNetCore.SwaggerGen.dll": {}
-        }
-      },
-      "Swashbuckle.AspNetCore.SwaggerUI/2.3.0.0": {
-        "runtime": {
-          "Swashbuckle.AspNetCore.SwaggerUI.dll": {}
-        }
       }
     }
   },
@@ -4901,26 +4853,6 @@
       "sha512": "sha512-jw9oHHEIVW53mHY9PgrQa98Xo2IZ0ZjrpdOTmtvk+Rvg4tq7dydmxdNqUvJ5YwjDqhn75mBXWttWjiKhWP53LQ==",
       "path": "system.xml.xpath.xdocument/4.3.0",
       "hashPath": "system.xml.xpath.xdocument.4.3.0.nupkg.sha512"
-    },
-    "Swashbuckle.AspNetCore/2.3.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Swashbuckle.AspNetCore.Swagger/2.3.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Swashbuckle.AspNetCore.SwaggerGen/2.3.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
-    },
-    "Swashbuckle.AspNetCore.SwaggerUI/2.3.0.0": {
-      "type": "reference",
-      "serviceable": false,
-      "sha512": ""
     },
     "Microsoft.CSharp.Reference/4.0.0.0": {
       "type": "referenceassembly",

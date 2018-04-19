@@ -1,8 +1,8 @@
-C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Newtonsoft.Json.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.runner.visualstudio.testadapter.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.runner.reporters.net452.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.runner.utility.net452.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.abstractions.dll
+C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\IntergrationTests.dll.config
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\IntergrationTests.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\IntergrationTests.pdb
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
@@ -131,11 +131,9 @@ C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\System.Interactive.Asy
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.assert.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.core.dll
+C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.execution.desktop.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll
-C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Swashbuckle.AspNetCore.Swagger.dll
-C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Hosting.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Mvc.dll
@@ -143,6 +141,7 @@ C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.D
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Http.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\SimpleInjector.Integration.AspNetCore.Mvc.Core.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\SimpleInjector.Integration.AspNetCore.dll
+C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Newtonsoft.Json.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Routing.Abstractions.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Routing.dll
@@ -166,7 +165,6 @@ C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.A
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.DataProtection.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll
-C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Mvc.ApiExplorer.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\System.Reflection.Metadata.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.Extensions.Configuration.dll
@@ -182,6 +180,7 @@ C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.Extensions.L
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.Extensions.Configuration.Json.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.Extensions.Configuration.UserSecrets.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.Extensions.Configuration.CommandLine.dll
+C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Mvc.ApiExplorer.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Mvc.Razor.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Mvc.RazorPages.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\Microsoft.AspNetCore.Mvc.TagHelpers.dll
@@ -238,15 +237,13 @@ C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\System.Collections.Imm
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\System.Diagnostics.DiagnosticSource.xml
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\System.Interactive.Async.xml
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.abstractions.xml
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.assert.xml
 C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.core.xml
+C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.execution.desktop.xml
 C:\Code\Github\EF-spike\Tests\IntergrationTests\obj\Debug\IntergrationTests.csprojResolveAssemblyReference.cache
+C:\Code\Github\EF-spike\Tests\IntergrationTests\obj\Debug\IntergrationTests.dll.config
 C:\Code\Github\EF-spike\Tests\IntergrationTests\obj\Debug\IntergrationTests.csproj.CoreCompileInputs.cache
 C:\Code\Github\EF-spike\Tests\IntergrationTests\obj\Debug\IntergrationTests.csproj.CopyComplete
 C:\Code\Github\EF-spike\Tests\IntergrationTests\obj\Debug\IntergrationTests.dll
 C:\Code\Github\EF-spike\Tests\IntergrationTests\obj\Debug\IntergrationTests.pdb
-C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\IntergrationTests.dll.config
-C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.execution.desktop.dll
-C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.abstractions.xml
-C:\Code\Github\EF-spike\Tests\IntergrationTests\bin\Debug\xunit.execution.desktop.xml
-C:\Code\Github\EF-spike\Tests\IntergrationTests\obj\Debug\IntergrationTests.dll.config
