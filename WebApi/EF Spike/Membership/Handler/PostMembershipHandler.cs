@@ -46,9 +46,7 @@ namespace EF_Spike.Membership.Handler
                                 x.EndDate == null)
                             .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
                                 e => e.EventReference,
-                                (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership });
-
-                        var lessThan2Members = await lessThan2MembersQuery.FirstOrDefaultAsync(cancellationToken);
+                                (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).AsQueryable();
 
                         if (request.Membership.LevyTagTypeReference != null)
                         {
@@ -56,7 +54,7 @@ namespace EF_Spike.Membership.Handler
                                 .Where(x => x.LevyTagDescription == "Less than 2")
                                 .Select(x => x.LevyTagTypeReference).FirstOrDefaultAsync(cancellationToken);
 
-                            lessThan2Members = await lessThan2MembersQuery.FirstOrDefaultAsync(
+                            var lessThan2Members = await lessThan2MembersQuery.FirstOrDefaultAsync(
                                 x => x.Membership.LevyTagTypeReference == request.Membership.LevyTagTypeReference,
                                 cancellationToken);
 
@@ -76,7 +74,7 @@ namespace EF_Spike.Membership.Handler
                         }
                         else
                         {
-                            lessThan2Members = await lessThan2MembersQuery.FirstOrDefaultAsync(
+                            var lessThan2Members = await lessThan2MembersQuery.FirstOrDefaultAsync(
                                 x => x.Membership.LevyTagTypeReference == null &&
                                      x.Membership.EffectiveDate == request.Membership.EffectiveDate, cancellationToken);
 
@@ -162,7 +160,7 @@ namespace EF_Spike.Membership.Handler
                                     x.EndEventReference == null)
                                 .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
                                     e => e.EventReference,
-                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate);
+                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate).AsQueryable();
 
                             foreach (var item in lessThan2MembersQuery)
                             {
@@ -180,7 +178,7 @@ namespace EF_Spike.Membership.Handler
                                     x.EndEventReference == null)
                                 .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
                                     e => e.EventReference,
-                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate);
+                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate).AsQueryable();
 
                             foreach (var item in lessThan2MembersQuery)
                             {
@@ -202,7 +200,7 @@ namespace EF_Spike.Membership.Handler
                                     x.EffectiveDate == request.Membership.EffectiveDate)
                                 .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
                                     e => e.EventReference,
-                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate);
+                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate).AsQueryable();
 
                             foreach (var item in lessThan2MembersQuery)
                             {
@@ -221,7 +219,7 @@ namespace EF_Spike.Membership.Handler
                                     x.EffectiveDate == request.Membership.EffectiveDate)
                                 .Join(context.TblEvent, tblMembership => tblMembership.StartEventReference,
                                     e => e.EventReference,
-                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate);
+                                    (tblMembership, e) => new { e.NotificationDate, Membership = tblMembership }).Where(x => x.NotificationDate <= request.Event.NotificationDate).AsQueryable();
 
                             foreach (var item in lessThan2MembersQuery)
                             {
