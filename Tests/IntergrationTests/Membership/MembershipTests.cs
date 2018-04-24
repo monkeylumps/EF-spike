@@ -78,7 +78,7 @@ namespace IntergrationTests.Membership
             Assert.True(resolvedResult.Value.result == "null");
         }
 
-        [Fact]
+        [Fact(Skip = "IntTest")]
         public async void PostMembership()
         {
             // Arrange
