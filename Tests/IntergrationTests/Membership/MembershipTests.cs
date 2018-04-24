@@ -269,7 +269,7 @@ namespace IntergrationTests.Membership
             return new MembershipAverageAgeBasiss
             {
                 MembershipAverageAgeBasis = 1,
-                StartEventReference = 1
+                StartEventReference = 1,
             };
         }
     }

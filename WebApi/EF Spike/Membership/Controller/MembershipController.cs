@@ -29,7 +29,7 @@ namespace EF_Spike.Membership.Controller
         [HttpPost]
         public async Task<IActionResult> Post(Model.Membership membership)
         {
-            var result = await mediator.Send(new PostMembership
+            var result = await mediator.Send(new PostMembershipSproc
             {
                 Membership = membership,
                 Event = new Event

@@ -993,6 +993,18 @@
           "lib/net461/Microsoft.EntityFrameworkCore.Design.dll": {}
         }
       },
+      "Microsoft.EntityFrameworkCore.InMemory/2.0.2": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.0.2"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.InMemory.dll": {}
+        }
+      },
       "Microsoft.EntityFrameworkCore.Relational/2.0.2": {
         "type": "package",
         "dependencies": {
@@ -3576,6 +3588,17 @@
         "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.xml",
         "microsoft.entityframeworkcore.design.2.0.2.nupkg.sha512",
         "microsoft.entityframeworkcore.design.nuspec"
+      ]
+    },
+    "Microsoft.EntityFrameworkCore.InMemory/2.0.2": {
+      "sha512": "ElVLhS/kaVByeh1I7mg9AcUVfZ/k55SMCW6BRRoXIMaAyUHw9n3EWhK7ThdBLp1Dek0UBwSD593jxGis2BqUGA==",
+      "type": "package",
+      "path": "microsoft.entityframeworkcore.inmemory/2.0.2",
+      "files": [
+        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.InMemory.dll",
+        "lib/netstandard2.0/Microsoft.EntityFrameworkCore.InMemory.xml",
+        "microsoft.entityframeworkcore.inmemory.2.0.2.nupkg.sha512",
+        "microsoft.entityframeworkcore.inmemory.nuspec"
       ]
     },
     "Microsoft.EntityFrameworkCore.Relational/2.0.2": {
@@ -7548,6 +7571,7 @@
     ".NETFramework,Version=v4.6.2": [
       "AutoMapper >= 6.2.2",
       "EF Spike >= 1.0.0",
+      "Microsoft.EntityFrameworkCore.InMemory >= 2.0.2",
       "Microsoft.EntityFrameworkCore.Sqlite >= 2.0.2",
       "SimpleInjector >= 4.0.12",
       "xunit >= 2.3.1",
@@ -7601,6 +7625,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[6.2.2, )"
+          },
+          "Microsoft.EntityFrameworkCore.InMemory": {
+            "target": "Package",
+            "version": "[2.0.2, )"
           },
           "Microsoft.EntityFrameworkCore.Sqlite": {
             "target": "Package",
