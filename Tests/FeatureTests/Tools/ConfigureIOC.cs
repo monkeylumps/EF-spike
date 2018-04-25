@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using EF_Spike.DatabaseContext;
 using EF_Spike.Membership.Handler;
+using EF_Spike.Shared.Polly.Handler;
 using MediatR;
 using MediatR.Pipeline;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,8 @@ namespace FeatureTests.Tools
             container.RegisterCollection(typeof(IRequestPostProcessor<,>), assemblies);
             container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
             container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
+
+            container.RegisterDecorator(typeof(IRequestHandler<,>), typeof(PollyDecorator<,>));
 
             container.Verify();
 

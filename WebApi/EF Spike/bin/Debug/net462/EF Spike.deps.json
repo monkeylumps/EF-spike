@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.6.2/win7-x86",
-    "signature": "934df4923cfd1fdd8d3ec2b141421f23081ca64b"
+    "signature": "f27d9a87d6e88f9c95ae1d4737d47fa7fa5961e4"
   },
   "compilationOptions": {
     "defines": [
@@ -34,6 +34,7 @@
           "Microsoft.Extensions.FileProviders.Embedded": "2.0.1",
           "Microsoft.VisualStudio.Web.BrowserLink": "2.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
+          "Polly": "5.9.0",
           "SimpleInjector": "4.0.12",
           "SimpleInjector.Integration.AspNetCore.Mvc": "4.0.12",
           "Microsoft.CSharp.Reference": "4.0.0.0",
@@ -1857,6 +1858,11 @@
           "lib/net45/NuGet.Frameworks.dll": {}
         }
       },
+      "Polly/5.9.0": {
+        "compile": {
+          "lib/net45/Polly.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -2107,6 +2113,7 @@
           "Microsoft.Extensions.FileProviders.Embedded": "2.0.1",
           "Microsoft.VisualStudio.Web.BrowserLink": "2.0.2",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
+          "Polly": "5.9.0",
           "SimpleInjector": "4.0.12",
           "SimpleInjector.Integration.AspNetCore.Mvc": "4.0.12",
           "Microsoft.CSharp.Reference": "4.0.0.0",
@@ -3333,6 +3340,11 @@
           "lib/net45/NuGet.Frameworks.dll": {}
         }
       },
+      "Polly/5.9.0": {
+        "runtime": {
+          "lib/net45/Polly.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "dependencies": {
           "System.Collections": "4.3.0",
@@ -4391,6 +4403,13 @@
       "sha512": "sha512-WCkN68c8q+USG+Ot1MmBDH+9DUo5dk7UB0QDMiwCYhrH7ZoFLKFGGNzJ8C3LTR1DvB1LW9BOxKeznnZznKiCTA==",
       "path": "nuget.frameworks/4.0.0",
       "hashPath": "nuget.frameworks.4.0.0.nupkg.sha512"
+    },
+    "Polly/5.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Gu6lokaAOpj71lu9n2AZaQ0kh8sh24FO54gGEktJwgBXg39gOSoI37pkaRERSKQma/hoL56Gbj30i1EpOb3a1g==",
+      "path": "polly/5.9.0",
+      "hashPath": "polly.5.9.0.nupkg.sha512"
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",

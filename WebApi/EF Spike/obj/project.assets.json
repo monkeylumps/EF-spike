@@ -1650,6 +1650,15 @@
           "lib/net45/NuGet.Frameworks.dll": {}
         }
       },
+      "Polly/5.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Polly.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Polly.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -4134,6 +4143,15 @@
           "lib/net45/NuGet.Frameworks.dll": {}
         }
       },
+      "Polly/5.9.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Polly.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Polly.dll": {}
+        }
+      },
       "Remotion.Linq/2.1.1": {
         "type": "package",
         "dependencies": {
@@ -6533,6 +6551,22 @@
         "lib/netstandard1.3/NuGet.Frameworks.xml",
         "nuget.frameworks.4.0.0.nupkg.sha512",
         "nuget.frameworks.nuspec"
+      ]
+    },
+    "Polly/5.9.0": {
+      "sha512": "Gu6lokaAOpj71lu9n2AZaQ0kh8sh24FO54gGEktJwgBXg39gOSoI37pkaRERSKQma/hoL56Gbj30i1EpOb3a1g==",
+      "type": "package",
+      "path": "polly/5.9.0",
+      "files": [
+        "lib/net45/Polly.dll",
+        "lib/net45/Polly.pdb",
+        "lib/net45/Polly.xml",
+        "lib/netstandard1.1/Polly.deps.json",
+        "lib/netstandard1.1/Polly.dll",
+        "lib/netstandard1.1/Polly.pdb",
+        "lib/netstandard1.1/Polly.xml",
+        "polly.5.9.0.nupkg.sha512",
+        "polly.nuspec"
       ]
     },
     "Remotion.Linq/2.1.1": {
@@ -9451,6 +9485,7 @@
       "Microsoft.Extensions.FileProviders.Embedded >= 2.0.1",
       "Microsoft.VisualStudio.Web.BrowserLink >= 2.0.2",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.3",
+      "Polly >= 5.9.0",
       "SimpleInjector >= 4.0.12",
       "SimpleInjector.Integration.AspNetCore.Mvc >= 4.0.12"
     ]
@@ -9538,6 +9573,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.0.3, )"
+          },
+          "Polly": {
+            "target": "Package",
+            "version": "[5.9.0, )"
           },
           "SimpleInjector": {
             "target": "Package",
