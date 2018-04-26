@@ -211,6 +211,7 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Microsoft.Win32.Registr
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Newtonsoft.Json.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Newtonsoft.Json.Bson.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\NuGet.Frameworks.dll
+C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Polly.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Remotion.Linq.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.dll
 C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.dll
@@ -339,5 +340,3 @@ C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.AssemblyInfo.c
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csproj.CopyComplete
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.exe
 C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.pdb
-C:\Code\Github\EF-spike\WebApi\EF Spike\obj\Debug\net462\EF Spike.csprojResolveAssemblyReference.cache
-C:\Code\Github\EF-spike\WebApi\EF Spike\bin\Debug\net462\Polly.dll

@@ -6,22 +6,29 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EF_Spike.Shared.Polly.Handler
 {
-    public class PollyDecorator<TRequest, TResponse> : IRequestHandler<TRequest, TResponse> where TRequest : IRequest<TResponse>
+    public class PollyDecorator<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
-        private readonly IRequestHandler<TRequest, TResponse> requestHandler;
         private readonly RegistryContext context;
 
-        public PollyDecorator(IRequestHandler<TRequest, TResponse> requestHandler, RegistryContext context)
+        public PollyDecorator(RegistryContext context)
         {
-            this.requestHandler = requestHandler;
             this.context = context;
         }
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken)
+        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
             var strategy = context.Database.CreateExecutionStrategy();
 
-            return await strategy.Execute(() => requestHandler.Handle(request, cancellationToken));
+            return await strategy.ExecuteAsync(async () =>
+            {
+                using (var transaction = context.Database.BeginTransaction())
+                {
+                    var result = await next();
+                    transaction.Commit();
+
+                    return result;
+                }
+            });
         }
     }
 }

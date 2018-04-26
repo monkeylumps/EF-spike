@@ -31,6 +31,7 @@ namespace FeatureTests.Tools
             container.RegisterSingleton(Console.Out);
             container.RegisterCollection(typeof(IPipelineBehavior<,>), new[]
             {
+                typeof(PollyDecorator<,>),
                 typeof(RequestPreProcessorBehavior<,>),
                 typeof(RequestPostProcessorBehavior<,>),
             });
@@ -38,8 +39,6 @@ namespace FeatureTests.Tools
             container.RegisterCollection(typeof(IRequestPostProcessor<,>), assemblies);
             container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
             container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
-
-            container.RegisterDecorator(typeof(IRequestHandler<,>), typeof(PollyDecorator<,>));
 
             container.Verify();
 

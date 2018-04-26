@@ -3,14 +3,12 @@ using System.Threading.Tasks;
 using EF_Spike.Membership.Handler;
 using EF_Spike.Shared.Event.Enum;
 using EF_Spike.Shared.Model;
-using EF_Spike.Shared.Polly.Handler;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EF_Spike.Membership.Controller
 {
     [Produces("application/json")]
-    [Route("api/Membership")]
     public class MembershipController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly IMediator mediator;
@@ -21,14 +19,10 @@ namespace EF_Spike.Membership.Controller
         }
 
         [HttpGet]
+        [Route("/api/Membership/{psr}")]
         public async Task<IActionResult> Get(int psr)
         {
-            var thing = new GetMembership {Psr = psr};
-            var thing2 = new Polly<Model.Membership, GetMembership>
-            {
-                Message = thing
-            };
-            var result = await mediator.Send(thing);
+            var result = await mediator.Send(new GetMembership { Psr = psr });
             return Ok(result);
         }
 

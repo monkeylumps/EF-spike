@@ -29,7 +29,7 @@ namespace IntergrationTests.Membership
 
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(connection);
+                optionsBuilder.UseSqlServer(connection, builder => builder.EnableRetryOnFailure());
             }
 
             var ioc = new ConfigureIoc();
@@ -48,14 +48,14 @@ namespace IntergrationTests.Membership
             registryContext = container.GetInstance<RegistryContext>();
         }
 
-        [Fact(Skip = "IntTest")]
+        [Fact]
         public async void GetMembershipIfValidPsr()
         {
             // Arrange
             var expected = CreateMembership(Psr);
 
             // Act
-            var result = await sut.Get(Psr);
+             var result = await sut.Get(Psr);
 
             var resolvedResult = resolver.GetObjectResult(expected, result);
 
@@ -78,7 +78,7 @@ namespace IntergrationTests.Membership
             Assert.True(resolvedResult.Value.result == "null");
         }
 
-        [Fact(Skip = "IntTest")]
+        [Fact]
         public async void PostMembership()
         {
             // Arrange

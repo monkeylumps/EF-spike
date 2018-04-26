@@ -4,7 +4,7 @@ using spike.Scheme.Models;
 namespace EF_spike.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Scheme")]
+    [Route("api/Schemes")]
     public class SchemeController : Controller
     {
         [HttpGet]

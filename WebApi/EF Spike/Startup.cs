@@ -66,7 +66,7 @@ namespace EF_Spike
                 var options = new DbContextOptionsBuilder<RegistryContext>();
                 if (!options.IsConfigured)
                 {
-                    options.UseSqlServer(connection);
+                    options.UseSqlServer(connection, builder => builder.EnableRetryOnFailure());
                 }
 
                 return new RegistryContext(options.Options);
@@ -80,6 +80,7 @@ namespace EF_Spike
             container.RegisterSingleton(Console.Out);
             container.RegisterCollection(typeof(IPipelineBehavior<,>), new[]
             {
+                typeof(PollyDecorator<,>),
                 typeof(RequestPreProcessorBehavior<,>),
                 typeof(RequestPostProcessorBehavior<,>),
             });
@@ -87,8 +88,6 @@ namespace EF_Spike
             container.RegisterCollection(typeof(IRequestPostProcessor<,>), assemblies);
             container.RegisterSingleton(new SingleInstanceFactory(container.GetInstance));
             container.RegisterSingleton(new MultiInstanceFactory(container.GetAllInstances));
-
-            container.RegisterDecorator(typeof(IRequestHandler<,>), typeof(PollyDecorator<,>));
 
             container.Verify();
 
@@ -124,6 +123,8 @@ namespace EF_Spike
                 x.CreateMap<EventTypeGroup, TblEventTypeGroup>();
                 x.CreateMap<TblEventTypeGroup, EventTypeGroup>();
             });
+
+            app.UseMvc();
         }
 
         private void IntegrateSimpleInjector(IServiceCollection services)

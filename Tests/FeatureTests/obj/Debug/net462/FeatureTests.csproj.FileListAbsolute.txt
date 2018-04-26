@@ -120,6 +120,7 @@ C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Microsoft.Win32.Regi
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Newtonsoft.Json.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Newtonsoft.Json.Bson.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\NuGet.Frameworks.dll
+C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Polly.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Remotion.Linq.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SimpleInjector.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\SimpleInjector.Integration.AspNetCore.dll
@@ -259,4 +260,3 @@ C:\Code\Github\EF-spike\Tests\FeatureTests\obj\Debug\net462\FeatureTests.Assembl
 C:\Code\Github\EF-spike\Tests\FeatureTests\obj\Debug\net462\FeatureTests.csproj.CopyComplete
 C:\Code\Github\EF-spike\Tests\FeatureTests\obj\Debug\net462\FeatureTests.dll
 C:\Code\Github\EF-spike\Tests\FeatureTests\obj\Debug\net462\FeatureTests.pdb
-C:\Code\Github\EF-spike\Tests\FeatureTests\bin\Debug\net462\Polly.dll

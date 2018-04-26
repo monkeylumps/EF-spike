@@ -2,15 +2,16 @@
   "ExpandedNodes": [
     "",
     "\\Tests",
-    "\\Tests\\FeatureTests\\Scheme",
-    "\\Tests\\IntergrationTests",
     "\\WebApi",
     "\\WebApi\\EF Spike",
     "\\WebApi\\EF Spike\\DatabaseContext",
     "\\WebApi\\EF Spike\\Membership",
-    "\\WebApi\\EF Spike\\Scheme",
-    "\\WebApi\\EF Spike\\Shared"
+    "\\WebApi\\EF Spike\\Membership\\Handler",
+    "\\WebApi\\EF Spike\\Shared",
+    "\\WebApi\\EF Spike\\Shared\\Event",
+    "\\WebApi\\EF Spike\\Shared\\Polly",
+    "\\WebApi\\EF Spike\\Shared\\Polly\\Handler"
   ],
-  "SelectedNode": "\\Tests\\IntergrationTests\\Membership",
+  "SelectedNode": "\\WebApi\\EF Spike\\Shared\\Polly\\Handler",
   "PreviewInSolutionExplorer": false
 }
